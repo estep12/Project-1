@@ -1,63 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Document</title>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <!--Import Google Icon Font-->
-     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-       <nav class="navbar navbar-default indigo darken-4" style="line-height:100px; height:100px">
-               <div class="container-fluid">
-                 <div class="navbar-header">
-                   <a class="navbar-brand white" href="#">logo here
-                     <img alt="Brand" src="#" height="100px" width="100px">
-                   </a>
-                 </div>
-               </div>
-             </nav>
-   <div class="container">
-       <div class="row">
-       <div class="col-md-6">
-   <form class="navbar-form navbar-left" role="search">
-       <div class="form-group">
-         <input type="text" class="form-control" placeholder="Search">
-       </div>
-       <button type="submit" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
-     </form>
-     </div>
-     
-     <div class ="col-md-6">
-           <div class="panel panel-default">
-                   <div class="panel-heading white-text indigo darken-4">Recent searches</div>
-                   <div id= "recent-search" class="panel-body">City Views GO Here</div>
-                 </div>
-   </div>
-   </div>
-   <div class="row">
-       <div class= "col-md-12">
-           <div class="panel panel-default">
-                   <div id="search-city" class="panel-heading white-text indigo darken-4">City Goes here</div>
-                   <div id= "city-info" class="panel-body">City info Goes Here</div>
-                   <div class="btn-group btn-group-vertical">
-                   <button id= "weather" class="btn waves-effect orange darken-1 z-depth-3"><i class="material-icons left">cloud</i>Weather</button>
-                   <button id= "job-search" class="btn waves-effect orange darken-1 z-depth-3"><i class="material-icons left">business</i>Jobs</button>
-                   <button id= "food" class="btn waves-effect orange darken-1 z-depth-3"><i class="material-icons left">local_dining</i>Restaurants</button>
-               </div>
-                 </div>
 
-       </div>
-   </div>
-   </div>
+<body>
+  <nav class="navbar navbar-default indigo darken-4" style="line-height:100px; height:100px">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand white" href="#">logo here
+          <img alt="Brand" src="#" height="100px" width="100px">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
+        </form>
+      </div>
+
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading white-text indigo darken-4">Recent searches</div>
+          <div id="recent-search" class="panel-body">City Views GO Here</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div id="search-city" class="panel-heading white-text indigo darken-4">City Goes here</div>
+          <div id="city-info" class="panel-body">City info Goes Here</div>
+          <div class="btn-group btn-group-vertical">
+            <button id="weather" class="btn waves-effect orange darken-1 z-depth-3">
+              <i class="material-icons left">cloud</i>Weather</button>
+            <button id="job-search" class="btn waves-effect orange darken-1 z-depth-3">
+              <i class="material-icons left">business</i>Jobs</button>
+            <button id="food" class="btn waves-effect orange darken-1 z-depth-3">
+              <i class="material-icons left">local_dining</i>Restaurants</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="assets/javascript/app.js"></script>
 </body>
+
 </html>
