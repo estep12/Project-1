@@ -6,7 +6,9 @@ nav .brand-logo{
     font-size: 50px;
     
 }
-
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 aside{
     width: 200px;
     clear: right;
@@ -43,6 +45,12 @@ aside{
     height: 51px;
     border-radius: 5px;
 }
+
+.about{
+    font-size: 20px;
+    color:black;
+}
+
 
 
 

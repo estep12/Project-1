@@ -83,7 +83,7 @@ $("#submit").on("click", (e) => {
         }
     }).then((response) => {
         cityPhotoURL = response.photos[0].image.web;
-        $("#city-info").append($("<img>").attr("src", cityPhotoURL));
+        $("#city-image").append($("<img>").attr("src", cityPhotoURL));
     })
 });
 
