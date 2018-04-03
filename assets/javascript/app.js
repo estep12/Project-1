@@ -3,18 +3,6 @@ $(document).ready(function(){
     let stateAbbrev;
 
     const weatherApiKey = "d94860da10767bf2";
-
-    var config = {
-        apiKey: "AIzaSyDtbDtrYHKNrdkYMqAmMAXxcHhIa4tLW-8",
-        authDomain: "relocation-app-bd038.firebaseapp.com",
-        databaseURL: "https://relocation-app-bd038.firebaseio.com",
-        projectId: "relocation-app-bd038",
-        storageBucket: "",
-        messagingSenderId: "37449828472"
-    };
-
-    firebase.initializeApp(config);
-
     
     $("#weather").on("click", function(event) {
         weatherApi();
