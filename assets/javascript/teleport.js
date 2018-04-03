@@ -46,3 +46,5 @@ TeleportAutocomplete.init('#teleport-autocomplete').on('change', function(respon
         $("#city-info").append($("<img>").attr("src", cityPhotoURL));
     })
 });
+
+$(".dropdown-trigger").dropdown();
