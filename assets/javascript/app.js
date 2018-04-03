@@ -1,7 +1,7 @@
 $(document).ready(function(){
     let city;
     let stateAbbrev;
-
+    $('.collapsible').collapsible();
     const weatherApiKey = "d94860da10767bf2";
     
     $("#weather").on("click", function(event) {
