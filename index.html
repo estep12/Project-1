@@ -9,74 +9,84 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/teleport-autocomplete.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-  <nav class="nav-wrapper #1a237e indigo darken-4">
-        <a href="#" class="brand-logo center ">Reloco</a>
-  </nav>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper color: #1a237e indigo darken-4" id="reloco-nav">
+          <a href="#" class="brand-logo">Reloco</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Most Searched Cities<i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+        </div>
+    </nav>
+
 
 <div class="container">
-  <!-- updated search bar with, centered search bar, css border added and submit button aligned right -->
-  <div class="center row">
-    <div class="col s12" >
-        <div id="border" class="nav-wrapper white z-depth-3">
-      <div class="row" id="topbarsearch">
-        <div class="input-field col s6 s12 black-text">
-          <i class="orange-text text-darken-1 material-icons prefix">search</i>
-          <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete black-text" >
-          <button id="submit" class="btn waves-effect orange darken-1 z-depth-3 right">
-              <i class="material-icons"></i>Submit</button>
-          </div>
-        </div>
+    <div class="row" id="search-row">
+    <div class="col m3"></div>
+      <div class="col m6" id="search-col">
+        
+          <form class="form-group">
+            <div>
+                <input type="text" id="teleport-autocomplete" class="my-input" name="field" tabindex="1" autocomplete="off" placeholder="Search">
+            </div>
+          </form>
       </div>
-    </div> 
+      <div class="col m3" id="btn-col">
+            <button type="submit" id="submit" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
     </div>
+    </div>
+
 
     <div class="row">
 
-    <div class="col m8">
+    <div class="col m12">
         <div class="card">
           <div id="search-city" class="card-heading white-text indigo darken-4">City Goes here</div>
           <div id="city-info" class="card-body">City info Goes Here</div>
-          <div class="btn-group btn-group-vertical">
-            <button id="weather" class="btn waves-effect orange darken-1 z-depth-3">
-              <i class="material-icons left">cloud</i>Weather</button>
-            <button id="job-search" class="btn waves-effect orange darken-1 z-depth-3">
-              <i class="material-icons left">business</i>Jobs</button>
-            <button id="food" class="btn waves-effect orange darken-1 z-depth-3">
-              <i class="material-icons left">local_dining</i>Restaurants</button>
-          </div>
         </div>
+      </div>
     </div>
 
-   
-      
-        <div class="col md4">
-            <div class="card">
-                <div class="card-heading white-text indigo darken-4">Recent searches</div>
-                <div id="recent-search" class="card-body">City Views GO Here</div>
-            </div>
-        </div>  
-    </div>
- 
-
-        <div class="row">
-            <div class="col m12">
-                <div class="card">
-
-                </div>
-            </div>
+    <div class="row">
+        <div class="col m3"></div>
+        <div class="col m6">
+                    <div class="btn-group btn-group-vertical">
+                            <button id="weather" class="btn waves-effect orange darken-1 z-depth-3">
+                              <i class="material-icons left">cloud</i>Weather</button>
+                            <button id="job-search" class="btn waves-effect orange darken-1 z-depth-3">
+                              <i class="material-icons left">business</i>Jobs</button>
+                            <button id="food" class="btn waves-effect orange darken-1 z-depth-3">
+                              <i class="material-icons left">local_dining</i>Restaurants</button>
+                    </div>
+            
         </div>
-</div>
-   
-   
+        <div class="col m3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col m12">
+            <div class="card" id="city-add-on">
+
+            </div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <script src="assets/javascript/app.js"></script>
+  <script src="assets/javascript/teleport-autocomplete.min.js"></script>
   <script src="assets/javascript/teleport.js"></script>
+  <script src="assets/javascript/app.js"></script>
 </body>
 
 </html>

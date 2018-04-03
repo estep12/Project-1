@@ -1,17 +1,45 @@
-@import url('https://fonts.googleapis.com/css?family=Chicle');
 
-.brand-logo{
+
+nav .brand-logo{
     font-family: 'Chicle', cursive;
+    margin-left: 30px;
+    font-size: 50px;
+    
 }
-/*updated search bar border and submit button */
-#border{
-    border-color:#1a237e;
-    border-width: 2px; 
-    border-style: solid;
-    margin-top: 10px;  
-    margin-left:40px;
-    width:800px;
+
+aside{
+    width: 200px;
+    clear: right;
+    background-color: goldenrod;
+    
 }
+
+#sidebar-header{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#search-row{
+    background-image: url(../images/cityscape_image.jpg);
+    height: 460px;
+}
+
+#search-col{
+    margin-top: 25%;
+    background-color: white;
+}
+
+#btn-col{
+    margin-top: 25%;
+    
+}
+
 #submit{
-    margin-right: 10px;
+    height: 55px;
 }
+
+
+
+
