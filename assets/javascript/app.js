@@ -4,7 +4,7 @@ $(document).ready(function(){
     $('.collapsible').collapsible();
     const weatherApiKey = "d94860da10767bf2";
     
-    $("#weather").on("click", function(event) {
+    $("#weather-btn").on("click", function(event) {
         weatherApi();
     })
 
