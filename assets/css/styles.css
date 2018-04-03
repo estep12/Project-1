@@ -24,11 +24,14 @@ aside{
 #search-row{
     background-image: url(../images/cityscape_image.jpg);
     height: 460px;
+    border-radius: 5px;
 }
 
 #search-col{
     margin-top: 25%;
     background-color: white;
+    border-radius: 5px;
+    
 }
 
 #btn-col{
@@ -38,6 +41,7 @@ aside{
 
 #submit{
     height: 51px;
+    border-radius: 5px;
 }
 
 
