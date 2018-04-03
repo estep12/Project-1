@@ -83,7 +83,8 @@ $("#submit").on("click", (e) => {
         }
     }).then((response) => {
         cityPhotoURL = response.photos[0].image.web;
-        $("#city-image").append($("<img>").attr("src", cityPhotoURL));
+        $("#city-image").empty().append($('<img id="dynamic-img">').attr("src", cityPhotoURL));
+        $('#dynamic-img').attr("style", "width:100%;")
     })
 });
 
