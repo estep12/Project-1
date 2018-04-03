@@ -43,7 +43,7 @@ TeleportAutocomplete.init('#teleport-autocomplete').on('change', function(respon
     }).then((response) => {
         console.log(response);
         cityPhotoURL = response.photos[0].image.web;
-        $("#city-info").append($("<img>").attr("src", cityPhotoURL));
+        $("#city-image").append($("<img>").attr("src", cityPhotoURL));
     })
 });
 

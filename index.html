@@ -14,70 +14,94 @@
 </head>
 
 <body>
-    <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">one</a></li>
-        <li><a href="#!">two</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">three</a></li>
-    </ul>
-    <nav>
-        <div class="nav-wrapper color: #1a237e indigo darken-4" id="reloco-nav">
-          <a href="#" class="brand-logo">Reloco</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Most Searched Cities<i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul>
-        </div>
-    </nav>
+  <ul id="dropdown1" class="dropdown-content">
+    <li>
+      <a href="#!">one</a>
+    </li>
+    <li>
+      <a href="#!">two</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="#!">three</a>
+    </li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper color: #1a237e indigo darken-4" id="reloco-nav">
+      <a href="#" class="brand-logo">Reloco</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a class="dropdown-trigger" href="#!" data-target="dropdown1">Most Searched Cities
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 
-<div class="container">
+  <div class="container">
     <div class="row" id="search-row">
-    <div class="col m3"></div>
+      <div class="col m3"></div>
       <div class="col m6" id="search-col">
-        
-          <form class="form-group">
-            <div>
-                <input type="text" id="teleport-autocomplete" class="my-input" name="field" tabindex="1" autocomplete="off" placeholder="Search">
-            </div>
-          </form>
+
+        <form class="form-group">
+          <div>
+            <input type="text" id="teleport-autocomplete" class="my-input" name="field" tabindex="1" autocomplete="off" placeholder="Search">
+          </div>
+        </form>
       </div>
       <div class="col m3" id="btn-col">
-            <button type="submit" id="submit" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
-    </div>
+        <button type="submit" id="submit" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
+      </div>
     </div>
 
-
+    <!-- created card for image, weather and city info. Added background color to image card. Added current font to entire body so text is same across webpage. -->
     <div class="row">
-
-    <div class="col m12">
+      <div class="col m12">
         <div class="card">
-          <div id="search-city" class="card-heading white-text indigo darken-4">City Goes here</div>
-          <div id="city-info" class="card-body">City info Goes Here</div>
+          <div id="city-image" class="card-body white-text indigo darken-4">
+            <span id="search-city" class="card-title"></span>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="row">
-        <div class="col m3"></div>
-        <div class="col m6">
-                    <div class="btn-group btn-group-vertical">
-                            <button id="weather" class="btn waves-effect orange darken-1 z-depth-3">
-                              <i class="material-icons left">cloud</i>Weather</button>
-                            <button id="job-search" class="btn waves-effect orange darken-1 z-depth-3">
-                              <i class="material-icons left">business</i>Jobs</button>
-                            <button id="food" class="btn waves-effect orange darken-1 z-depth-3">
-                              <i class="material-icons left">local_dining</i>Restaurants</button>
-                    </div>
-            
+      <div class="col m6">
+        <div class="card">
+          <div id="weather">Map Goes Here</div>
         </div>
-        <div class="col m3"></div>
+      </div>
+
+      <div class="col m6">
+        <div class="card">
+          <div id="city-info" class="about">City info Goes Here</div>
+        </div>
+      </div>
     </div>
 
     <div class="row">
-        <div class="col m12">
-            <div class="card" id="city-add-on">
+      <div class="col m3"></div>
+      <div class="col m6">
+        <div class="btn-group btn-group-vertical">
+          <button id="weather" class="btn waves-effect orange darken-1 z-depth-3">
+            <i class="material-icons left">cloud</i>Weather</button>
+          <button id="job-search" class="btn waves-effect orange darken-1 z-depth-3">
+            <i class="material-icons left">business</i>Jobs</button>
+          <button id="food" class="btn waves-effect orange darken-1 z-depth-3">
+            <i class="material-icons left">local_dining</i>Restaurants</button>
+        </div>
 
-            </div>
+      </div>
+      <div class="col m3"></div>
+    </div>
+
+    <div class="row">
+      <div class="col m12">
+        <div class="card" id="city-add-on">
+
+        </div>
       </div>
     </div>
   </div>
