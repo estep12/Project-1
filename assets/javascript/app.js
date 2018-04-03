@@ -6,7 +6,7 @@ $(document).ready(function(){
     
     $("#submit").on("click", function(event){
         event.preventDefault();
-        city = $("#search").val().trim();
+        city = $("#teleport-autocomplete").val().trim();
         
         //state abbreviations to figure out through autocomplete teleport api
         
