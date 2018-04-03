@@ -21,6 +21,24 @@ aside{
     text-align: center;
 }
 
+#search-row{
+    background-image: url(../images/cityscape_image.jpg);
+    height: 460px;
+}
+
+#search-col{
+    margin-top: 25%;
+    background-color: white;
+}
+
+#btn-col{
+    margin-top: 25%;
+    
+}
+
+#submit{
+    height: 55px;
+}
 
 
 
