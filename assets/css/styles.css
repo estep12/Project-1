@@ -1,7 +1,10 @@
 
 
-.brand-logo{
+nav .brand-logo{
     font-family: 'Chicle', cursive;
+    margin-left: 30px;
+    font-size: 50px;
+    
 }
 
 aside{
@@ -18,7 +21,7 @@ aside{
     text-align: center;
 }
 
-#teleport-autocomplete{
-    /* align-content: center; */
-}
+
+
+
 
