@@ -46,10 +46,10 @@
 
     <!-- Added color to text image card. -->
     <div class="row">
-      <div class="col m12">
+      <div class="col m12" id="image-div">
         <div class="card">
           <span id="search-city" class="card-title"></span>
-          <div id="city-image" class="card-body white-text indigo darken-4">
+          <div id="city-image" class="card-body ">
           </div>
         </div>
       </div>
@@ -77,7 +77,7 @@
     </div>
 
     <div class="row">
-            <ul class="collapsible">
+            <ul class="collapsible popout">
                     <li>
                       <div class="collapsible-header" id="weather-btn"><i class="material-icons">filter_drama</i>Weather</div>
                       <div class="collapsible-body" id="weather-add-on"><span></span></div>
@@ -87,8 +87,8 @@
                       <div class="collapsible-body" id="jobs-add-on"><span></span></div>
                     </li>
                     <li>
-                      <div class="collapsible-header" id="food-btn"><i class="material-icons">whatshot</i>Food</div>
-                      <div class="collapsible-body" id="food-add-on"><span><div class="widget_wrap" style="width:500px;height:450px;display:inline-block;"><iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=826&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe></div></span></div>
+                      <div class="collapsible-header" id="food-btn"><i class="material-icons">restaurant</i>Local Dining</div>
+                      <div class="collapsible-body" id="food-add-on"><span><div class="widget_wrap" style="width:100%;height:450px;display:inline-block;"><iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=826&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe></div></span></div>
                     </li>
                   </ul>
     </div>

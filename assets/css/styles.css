@@ -9,19 +9,6 @@ nav .brand-logo{
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-aside{
-    width: 200px;
-    clear: right;
-    background-color: goldenrod;
-    
-}
-
-#sidebar-header{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-    text-decoration: underline;
-    text-align: center;
-}
 
 #search-row{
     background-image: url(../images/cityscape_image.jpg);
@@ -54,5 +41,21 @@ aside{
     color: #1a237e;
     font-size: 28px;
 } 
+
+#image-div{
+    padding: 0px;
+}
+
+#city-image{
+    display: inline-block;
+}
+
+.popout{
+    color: white;
+}
+
+.collapsible-header{
+    background-color: #fb8c00;
+}
 
 
