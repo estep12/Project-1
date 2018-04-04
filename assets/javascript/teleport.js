@@ -22,6 +22,7 @@ const database = firebase.database();
 // display firebase
 database.ref().orderByValue().limitToLast(3).on("value", (snapshot) => {
     $("#most-searched-dropdown").empty();
+
     snapshot.forEach(function (data) {
         $("#most-searched-dropdown").prepend($("<li>").append($("<a>").attr("href", "#").text(data.key)));
     });
@@ -37,6 +38,7 @@ $("#submit").on("click", (e) => {
     e.preventDefault();
     const searchCity = $("#teleport-autocomplete").val();
     teleport.clear();
+
     $("#teleport-autocomplete").val("");
     const queryURL = "https://api.teleport.org/api/cities/?search=" + searchCity.split(" ").join("+");
     $.ajax({
@@ -52,6 +54,7 @@ $("#submit").on("click", (e) => {
         stateName = response._links["city:admin1_division"].name;
         countryName = response._links["city:country"].name;
         fullName = response.full_name;
+
         latLong.lat = response.location.latlon.latitude;
         latLong.lng = response.location.latlon.longitude;
         population = response.population;
@@ -67,6 +70,7 @@ $("#submit").on("click", (e) => {
 
         $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
         $("#city-info").empty().append($("<p>").text(`Population: ${population}`));
+
         initMap(latLong);
 
         if (response._links["city:urban_area"]) {
