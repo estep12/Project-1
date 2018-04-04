@@ -35,8 +35,11 @@ body{
 
 .about{
     font-size: 20px;
-    color:black;
+    color:white;
+    background: linear-gradient(to bottom, #1a237e 0%, #7986cb 100%); 
+    text-align: left;
 }
+
 .card-title{
     color: #1a237e;
     font-size: 28px;
