@@ -45,6 +45,10 @@ body{
     font-size: 28px;
 } 
 
+#map {
+    height: 300px;
+}
+
 #image-div{
     padding: 0px;
 }
@@ -55,6 +59,10 @@ body{
 
 .popout{
     color: white;
+}
+
+.collapsible-header{
+    background-color: #fb8c00;
 }
 
 .collapsible-header{
