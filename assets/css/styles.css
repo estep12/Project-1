@@ -45,7 +45,6 @@ body{
     font-size: 28px;
 } 
 
-
 #map {
     height: 300px;
 }
@@ -66,5 +65,8 @@ body{
     background-color: #fb8c00;
 }
 
+.collapsible-header{
+    background-color: #fb8c00;
+}
 
 
