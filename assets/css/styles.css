@@ -37,7 +37,7 @@ body{
     font-size: 20px;
     color:white;
     background: linear-gradient(to bottom, #1a237e 0%, #7986cb 100%); 
-    text-align: left;
+    text-align: center;
 }
 
 .card-title{
@@ -71,6 +71,9 @@ body{
 
 .collapsible-header{
     background-color: #fb8c00;
+}
+tr{
+    color:#1a237e;
 }
 
 
