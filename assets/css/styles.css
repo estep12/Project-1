@@ -10,6 +10,10 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.dropdown-trigger{
+    color: white;
+}
+
 #search-row{
     background-image: url(../images/cityscape_image.jpg);
     height: 460px;
@@ -60,6 +64,11 @@ body{
 #weather-add-on{
     color: black;
 }
+
+#jobs-add-on{
+    
+}
+
 
 .popout{
     color: white;
