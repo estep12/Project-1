@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 
-
 </head>
 
 <body>
@@ -33,9 +32,6 @@
             </ul>
         </div>
     </nav>
-
-
-
 
 
     <div class="container">
@@ -58,36 +54,120 @@
             </form>
         </div>
 
-        <!-- Added color to text image card. -->
-        <div class="row">
-            <div class="col m12" id="image-div">
-                <div class="card">
-                    <span id="search-city" class="card-title"></span>
-                    <div id="city-image" class="card-body "></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col m12">
+                    <div class="card">
+                        <div class="card-image" <div id="image-div">
+                            <!--class="card"> -->
+                            <span id="search-city" class="card-title"></span>
+                            <div id="city-image" class="card-body "></div>
+                            <div id="city-des"></div>
+                            <!-- </div>
+            </div>
+        </div> -->
+                            <!-- 
+        <div class="row"> -->
+                            <div class="col m6">
+                                <!-- <div class="card"> -->
+                                <div id="map">Map Goes Here</div>
+                            </div>
+                            <!-- </div> -->
+
+                            <div class="col m6">
+                                <!-- <div class="card"> -->
+                                <div id="city-info" class="about">City info Goes Here</div>
+                                <table class="centered" class="responsive">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="scores-tbody-top">
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                        </tbody>
+                                        <thead>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Score</th>
+                                                </tr>
+                                            </thead>
+                                        <tbody id="scores-body-bot">
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                        <tr>
+                                            <td>test</td>
+                                            <td>test</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col m6">
-                <div class="card">
-                    <div id="map">Map Goes Here</div>
+            <div class="row">
+
+                <div class="explore-city">
+                    <h3 id="explore-city">Explore</h3>
                 </div>
             </div>
+            <div class="row">
+                <ul class="collapsible popout">
+                    <li>
+                        <div class="collapsible-header" id="weather-btn">
+                            <i class="material-icons">filter_drama</i>Weather</div>
+                        <div class="collapsible-body" id="weather-add-on">
+                            <span></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header">
+                            <i class="material-icons">place</i>Jobs</div>
+                        <div class="collapsible-body" id="jobs-add-on">
+                            <span>
+                                <div id="divReEmpCareerMatchesPortrait"></div>
+                            </span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header" id="food-btn">
+                            <i class="material-icons">restaurant</i>Local Dining</div>
+                        <div class="collapsible-body" id="food-add-on">
+                            <span>
+                                <div class="widget_wrap" style="width:100%;height:450px;display:inline-block;">
+                                    <iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=826&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;"
+                                        border="0" frameborder="0"></iframe>
+                                </div>
+                            </span>
+                        </div>
+                    </li>
+                </ul>
 
-            <div class="col m6">
-                <div class="card">
-                    <div id="city-info" class="about">City info Goes Here</div>
-                </div>
             </div>
         </div>
-
-        <div class="row">
-
-            <div class="explore-city">
-                <h3 id="explore-city">Explore</h3>
-            </div>
-        </div>
+  
         <div class="row">
             <ul class="collapsible popout">
                 <li>
@@ -117,17 +197,14 @@
                 </li>
             </ul>
 
-        </div>
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtbDtrYHKNrdkYMqAmMAXxcHhIa4tLW-8&callback=initMap">
-    </script>
-    <script src="assets/javascript/teleport-autocomplete.js"></script>
-    <script src="assets/javascript/teleport.js"></script>
-    <script src="assets/javascript/app.js"></script>
-    <script src="assets/javascript/restaurant.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtbDtrYHKNrdkYMqAmMAXxcHhIa4tLW-8&callback=initMap">
+        </script>
+        <script src="assets/javascript/teleport-autocomplete.js"></script>
+        <script src="assets/javascript/teleport.js"></script>
+        <script src="assets/javascript/app.js"></script>
+        <script src="assets/javascript/restaurant.js"></script>
 </body>
 
 </html>
