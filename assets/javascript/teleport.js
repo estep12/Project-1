@@ -15,16 +15,16 @@ var config = {
     projectId: "relocation-app-bd038",
     storageBucket: "relocation-app-bd038.appspot.com",
     messagingSenderId: "37449828472"
-  };
+};
 firebase.initializeApp(config);
 const database = firebase.database();
 
 // display firebase
 database.ref().orderByValue().limitToLast(3).on("value", (snapshot) => {
     $("#most-searched-dropdown").empty();
-    snapshot.forEach(function(data) {
-        $("#most-searched-dropdown").prepend($("<li>").append($("<a>").attr("href","#").text(data.key)));
-     });
+    snapshot.forEach(function (data) {
+        $("#most-searched-dropdown").prepend($("<li>").append($("<a>").attr("href", "#").text(data.key)));
+    });
 }, (errorObject) => {
     console.log(`Errors handled: ${errorObject.code}`);
 });
