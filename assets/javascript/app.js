@@ -39,7 +39,7 @@ $(document).ready(function(){
             let tempP = $("<p>");
             tempP.text("Current Temperature: " + temp);
             $("#weather-add-on").append(tempP);
-            console.lof(tempP);
+            console.log(tempP);
 
             let weatherP = $("<p>");
             weatherP.text("Current Weather Conditions: " + weather);
