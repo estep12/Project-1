@@ -30,7 +30,7 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            temp = response.current_observation.temp_string;
+            temp = response.current_observation.temperature_string;
             weatherFeels = response.current_observation.feelslike_string;
             weather = response.current_observation.weather;
             iconUrl = response.current_observation.icon_url;
