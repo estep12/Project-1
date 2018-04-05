@@ -8,4 +8,5 @@ $('#food-btn').on("click", function foodWidget(){
     console.log(longitudeFood);
     
     $('#food-add-on').empty().append(newDiv);
+
 })
