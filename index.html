@@ -2,121 +2,136 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <link rel="stylesheet" href="assets/css/teleport-autocomplete.min.css">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/teleport-autocomplete.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
 </head>
 
 <body>
   <ul id="most-searched-dropdown" class="dropdown-content">
 
-  </ul>
-  <nav>
-    <div class="nav-wrapper color: #1a237e indigo darken-4" id="reloco-nav">
-      <a href="#" class="brand-logo">Reloco</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a class="dropdown-trigger" href="#!" data-target="most-searched-dropdown">Most Searched Cities
-            <i class="material-icons right">arrow_drop_down</i>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+    </ul>
+    <nav>
+        <div class="nav-wrapper color: #1a237e indigo darken-4" id="reloco-nav">
+            <a href="#" class="brand-logo">Reloco</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="most-searched-dropdown">Most Searched Cities
+                        <i class="material-icons right">arrow_drop_down</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+
+
+    <div class="container">
+        <div class="row" id="search-row">
+            <div class="col m3"></div>
+            <form class="form-group">
+                <div class="col m6" id="search-col">
 
   <div class="container">
     <div class="row" id="search-row">
       <div class="col m3"></div>
-      <div class="col m6" id="search-col">
 
-        <form class="form-group">
-          <div>
-            <input type="text" id="teleport-autocomplete" class="my-input" name="field" tabindex="1" autocomplete="off" placeholder="Search">
-          </div>
-        </form>
-      </div>
-      <div class="col m3" id="btn-col">
-        <button type="submit" id="submit" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
-      </div>
-    </div>
+      <form class="form-group">
+        <div class="col m6" id="search-col">
 
-    <!-- Added color to text image card. -->
-    <div class="row">
-      <div class="col m12" id="image-div">
-        <div class="card">
-          <span id="search-city" class="card-title"></span>
-          <div id="city-image" class="card-body ">
-          </div>
+
+
+                    <div>
+                        <input type="text" id="teleport-autocomplete" class="my-input" name="field" tabindex="1" autocomplete="off" placeholder="Search">
+                    </div>
+
+                </div>
+                <div class="col m3" id="btn-col">
+                    <button type="submit" id="submit" tabindex="2" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
+                </div>
+            </form>
         </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col m6">
-        <div class="card">
-          <div id="weather">Map Goes Here</div>
+        <!-- Added color to text image card. -->
+        <div class="row">
+            <div class="col m12" id="image-div">
+                <div class="card">
+                    <span id="search-city" class="card-title"></span>
+                    <div id="city-image" class="card-body ">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="col m6">
-        <div class="card">
-          <div id="city-info" class="about">City info Goes Here</div>
+        <div class="row">
+            <div class="col m6">
+                <div class="card">
+                    <div id="map">Map Goes Here</div>
+                </div>
+            </div>
+
+            <div class="col m6">
+                <div class="card">
+                    <div id="city-info" class="about">City info Goes Here</div>
+                </div>
+            </div>
         </div>
-      </div>
+
+        <div class="row">
+
+            <div class="explore-city">
+                <h3 id="explore-city">Explore</h3>
+            </div>
+        </div>
+        <div class="row">
+
+            <ul class="collapsible popout">
+                <li>
+                    <div class="collapsible-header" id="weather-btn">
+                        <i class="material-icons">filter_drama</i>Weather</div>
+                    <div class="collapsible-body" id="weather-add-on">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        <i class="material-icons">place</i>Jobs</div>
+                    <div class="collapsible-body" id="jobs-add-on">
+                        <span></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header" id="food-btn">
+                        <i class="material-icons">whatshot</i>Food</div>
+                    <div class="collapsible-body" id="food-add-on">
+                        <span>
+                            <div class="widget_wrap" style="width:100%;height:450px;display:inline-block;">
+                                <iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=826&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;"
+                                    border="0" frameborder="0"></iframe>
+                            </div>
+                        </span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
     </div>
 
-    <div class="row">
-
-      <div class="explore-city">
-        <h3 id="explore-city">Explore</h3>
-      </div>
-    </div>
-    <div class="row">
-      <ul class="collapsible popout">
-        <li>
-          <div class="collapsible-header" id="weather-btn">
-            <i class="material-icons">filter_drama</i>Weather</div>
-          <div class="collapsible-body" id="weather-add-on">
-            <span></span>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header">
-            <i class="material-icons">place</i>Jobs</div>
-          <div class="collapsible-body" id="jobs-add-on">
-            <span></span>
-          </div>
-        </li>
-        <li>
-          <div class="collapsible-header" id="food-btn">
-            <i class="material-icons">restaurant</i>Local Dining</div>
-          <div class="collapsible-body" id="food-add-on">
-            <span>
-              <div class="widget_wrap" style="width:100%;height:450px;display:inline-block;">
-                <iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=826&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;"
-                  border="0" frameborder="0"></iframe>
-              </div>
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-  <script src="assets/javascript/teleport-autocomplete.min.js"></script>
-  <script src="assets/javascript/teleport.js"></script>
-  <script src="assets/javascript/app.js"></script>
-  <script src="assets/javascript/restaurant.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtbDtrYHKNrdkYMqAmMAXxcHhIa4tLW-8&callback=initMap">
+    </script>
+    <script src="assets/javascript/teleport-autocomplete.js"></script>
+    <script src="assets/javascript/teleport.js"></script>
+    <script src="assets/javascript/app.js"></script>
+    <script src="assets/javascript/restaurant.js"></script>
 </body>
 
 </html>

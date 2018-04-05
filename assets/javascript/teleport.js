@@ -3,7 +3,7 @@ let cityName;
 let stateName;
 let countryName;
 let fullName;
-let latLong = [];
+let latLong = {};
 let population;
 let cityPhotoURL;
 
@@ -22,6 +22,7 @@ const database = firebase.database();
 // display firebase
 database.ref().orderByValue().limitToLast(3).on("value", (snapshot) => {
     $("#most-searched-dropdown").empty();
+
     snapshot.forEach(function (data) {
         $("#most-searched-dropdown").prepend($("<li>").append($("<a>").attr("href", "#").text(data.key)));
     });
@@ -30,13 +31,14 @@ database.ref().orderByValue().limitToLast(3).on("value", (snapshot) => {
 });
 
 // initialize teleport autocomplete widget
-TeleportAutocomplete.init("#teleport-autocomplete");
-
+let teleport = TeleportAutocomplete.init("#teleport-autocomplete");
 
 // make teleport API calls when click the submit button
 $("#submit").on("click", (e) => {
     e.preventDefault();
     const searchCity = $("#teleport-autocomplete").val();
+    teleport.clear();
+
     $("#teleport-autocomplete").val("");
     const queryURL = "https://api.teleport.org/api/cities/?search=" + searchCity.split(" ").join("+");
     $.ajax({
@@ -52,8 +54,9 @@ $("#submit").on("click", (e) => {
         stateName = response._links["city:admin1_division"].name;
         countryName = response._links["city:country"].name;
         fullName = response.full_name;
-        latLong.push(response.location.latlon.latitude);
-        latLong.push(response.location.latlon.longitude);
+
+        latLong.lat = response.location.latlon.latitude;
+        latLong.lng = response.location.latlon.longitude;
         population = response.population;
 
         // update firebase
@@ -67,6 +70,8 @@ $("#submit").on("click", (e) => {
 
         $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
         $("#city-info").empty().append($("<p>").text(`Population: ${population}`));
+
+        initMap(latLong);
 
         if (response._links["city:urban_area"]) {
             return $.ajax({
@@ -89,3 +94,17 @@ $("#submit").on("click", (e) => {
 });
 
 $(".dropdown-trigger").dropdown();
+
+
+// add google map on search
+function initMap(latlonobj) {
+    // var uluru = { lat: -25.363, lng: 131.044 };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 6,
+        center: latlonobj
+    });
+    var marker = new google.maps.Marker({
+        position: latlonobj,
+        map: map
+    });
+}
