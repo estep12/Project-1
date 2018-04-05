@@ -6,6 +6,8 @@ let fullName;
 let latLong = {};
 let population;
 let cityPhotoURL;
+let cityScore;
+let scores;
 
 // initialize firebase
 var config = {
@@ -38,8 +40,35 @@ $("#submit").on("click", (e) => {
     e.preventDefault();
     const searchCity = $("#teleport-autocomplete").val();
     teleport.clear();
-
     $("#teleport-autocomplete").val("");
+    apiCalls(searchCity);
+});
+
+$("#most-searched-dropdown").on("click", "li", function() {
+    apiCalls($(this).text());
+});
+
+$(".dropdown-trigger").dropdown();
+
+
+// add google map on search
+function initMap(latlonobj) {
+    // var uluru = { lat: -25.363, lng: 131.044 };
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 6,
+        center: latlonobj
+    });
+    var marker = new google.maps.Marker({
+        position: latlonobj,
+        map: map
+    });
+}
+
+// function to run API calls
+function apiCalls(searchCity) {
+    $('html, body').animate({
+        scrollTop: $("#image-div").offset().top
+    }, 2000);
     const queryURL = "https://api.teleport.org/api/cities/?search=" + searchCity.split(" ").join("+");
     $.ajax({
         url: queryURL,
@@ -69,6 +98,7 @@ $("#submit").on("click", (e) => {
         });
 
         $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
+        $("#explore-city").text(`Explore ${cityName}`);
         $("#city-info").empty().append($("<p>").text(`Population: ${population}`));
 
         initMap(latLong);
@@ -81,30 +111,33 @@ $("#submit").on("click", (e) => {
         }
     }).then((response) => {
         if (response) {
-            return $.ajax({
+            const imageRequest =  $.ajax({
                 url: response._links["ua:images"].href,
                 method: "GET"
             })
+            const scoresRequest =  $.ajax({
+                url: response._links["ua:scores"].href,
+                method: "GET"
+            })
+
+            return Promise.all([imageRequest, scoresRequest]);
         }
     }).then((response) => {
-        cityPhotoURL = response.photos[0].image.web;
+        cityPhotoURL = response[0].photos[0].image.web;
+        cityScore = Math.round(response[1].teleport_city_score);
+        scores = response[1].categories;
+        scores.sort(function(a,b) {return (a.score_out_of_10 > b.score_out_of_10) ? -1 : ((b.score_out_of_10 > a.score_out_of_10) ? 1 : 0);});
         $("#city-image").empty().append($('<img id="dynamic-img">').attr("src", cityPhotoURL));
-        $('#dynamic-img').attr("style", "width:100%;")
+        $("#city-image").append(response[1].summary);
+        $("#city-image p").last().remove();
+        $('#dynamic-img').attr("style", "width: 100%;");
+        $("#city-info").append($("<p>").text(`City Score: ${cityScore} / 100`));
+        // TODO: UPDATE TABLE ID
+        $("#scores-tbody").empty();
+        for (let i = 0; i < scores.length; i++) {
+            const newTableRow = $("<tr>").append($("<td>").text(scores[i].name));
+            newTableRow.append($("<td>").text(Math.round(scores[i].score_out_of_10)));
+            $("#scores-tbody").append(newTableRow);
+        }
     })
-});
-
-$(".dropdown-trigger").dropdown();
-
-
-// add google map on search
-function initMap(latlonobj) {
-    // var uluru = { lat: -25.363, lng: 131.044 };
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 6,
-        center: latlonobj
-    });
-    var marker = new google.maps.Marker({
-        position: latlonobj,
-        map: map
-    });
 }
