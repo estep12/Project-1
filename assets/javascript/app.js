@@ -5,6 +5,7 @@ $(document).ready(function () {
     const weatherApiKey = "d94860da10767bf2";
 
     $("#weather-btn").on("click", function (event) {
+        $('#weather-add-on').empty();
         weatherApi();
     })
 
@@ -24,7 +25,7 @@ $(document).ready(function () {
         let avgLowC;
         let avgHighF;
         let avgHighC;
-
+        
         $.ajax({
             url: queryURL,
             method: "GET"
@@ -50,7 +51,9 @@ $(document).ready(function () {
             $("#weather-add-on").append(weatherP);
             console.log(weatherP);
 
-            $("weather-add-on").append($("<img>").attr("src", iconUrl));
+            $("#weather-add-on").append($('<div><img id="icon"></div>'));
+            $('#icon').attr("src", iconUrl)
+            console.log(iconUrl);
         })
 
         queryURL = "http://api.wunderground.com/api/" + weatherApiKey + "/almanac/q/" + stateName + "/" + cityName + ".json";
