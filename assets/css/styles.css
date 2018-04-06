@@ -24,7 +24,12 @@ body{
     margin-top: 25%;
     background-color: white;
     border-radius: 5px;
+    width: 400px;
     
+}
+
+.tp-autocomplete{
+    width: 1000px;
 }
 
 #btn-col{
