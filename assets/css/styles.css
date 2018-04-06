@@ -1,91 +1,81 @@
-
-
-nav .brand-logo{
+nav .brand-logo {
     font-family: 'Chicle', cursive;
     margin-left: 30px;
     font-size: 50px;
-    
-}
-body{
-    font-family: 'Franklin Gothic', Arial, sans-serif;
 }
 
-.dropdown-trigger{
+/* body{
+    font-family: 'Franklin Gothic', Arial, sans-serif;
+} */
+
+.dropdown-trigger {
     color: white;
 }
 
-#search-row{
+#search-row {
     background-image: url(../images/cityscape_image.jpg);
     background-size: cover;
     height: calc(100vh - 64px);
     margin-bottom: 0;
 }
 
-#search-col{
+#search-col {
     margin-top: calc(50vh - 64px);
     background-color: white;
     border-radius: 5px;
-    
 }
 
-#btn-col{
+#btn-col {
     margin-top: calc(50vh - 64px);
-    
 }
 
-#submit{
+#submit {
     height: 51px;
     border-radius: 5px;
 }
 
-.about{
-    font-size: 20px;
-    color:white;
-    background: linear-gradient(to bottom, #1a237e 0%, #7986cb 100%); 
-    text-align: center;
-}
-
-.card-title{
+.card-title {
     color: #1a237e;
     font-size: 28px;
-} 
+}
 
 #map {
     height: 250px;
 }
 
-#image-div{
+/* #image-div{
     padding: 0px;
-}
+} */
 
-#city-image{
+#city-image {
     display: inline-block;
 }
 
-#weather-add-on{
+#weather-add-on {
     color: black;
 }
 
-#jobs-add-on{
-    
+#jobs-add-on {
+
 }
 
-
-.popout{
+.popout {
     color: white;
 }
 
-.collapsible-header{
+.collapsible-header {
     background-color: #fb8c00;
 }
 
-.collapsible-header{
+.collapsible-header {
     background-color: #fb8c00;
 }
-tr{
-    color:#1a237e;
+
+tr {
+    color: #1a237e;
 }
-#icon{
+
+#icon {
     float: right;
     position: relative;
     bottom: 150px;
@@ -93,13 +83,9 @@ tr{
     height: 100px;
 }
 
-
 .dropdown-content {
-    top: 64px!important;
+    top: 64px !important;
 }
-
-
-
 
 .tp-autocomplete {
     max-width: none;
@@ -109,4 +95,9 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
     border-bottom: 1px solid #1a237e;
     -webkit-box-shadow: 0 1px 0 0 #1a237e;
     box-shadow: 0 1px 0 0 #1a237e;
+}
+
+#explore-city {
+    margin-left: 10px;
+    font-size: 28px;
 }
