@@ -12,8 +12,10 @@ nav .brand-logo {
     color: white;
 }
 
-#search-row {
-    background-image: url(../images/cityscape_image.jpg);
+
+#search-row{
+    background-image: url(../images/architecture-buildings-another-city.jpg);
+
     background-size: cover;
     height: calc(100vh - 64px);
     margin-bottom: 0;
@@ -25,13 +27,15 @@ nav .brand-logo {
     border-radius: 5px;
 }
 
-#btn-col {
+#btn-col{
+
     margin-top: calc(50vh - 64px);
 }
 
 #submit {
     height: 51px;
     border-radius: 5px;
+    background-color: #ff8a65
 }
 
 .card-title {
@@ -63,12 +67,14 @@ nav .brand-logo {
     color: white;
 }
 
-.collapsible-header {
-    background-color: #fb8c00;
+
+.collapsible-header{
+    background-color: #ff8a65;
 }
 
-.collapsible-header {
-    background-color: #fb8c00;
+.collapsible-header{
+    background-color: #ff8a65;
+
 }
 
 tr {
