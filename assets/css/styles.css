@@ -93,9 +93,13 @@ tr{
     height: 100px;
 }
 
+
 .dropdown-content {
     top: 64px!important;
 }
+
+
+
 
 .tp-autocomplete {
     max-width: none;
