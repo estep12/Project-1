@@ -15,7 +15,7 @@ body{
 }
 
 #search-row{
-    background-image: url(../images/cityscape_image.jpg);
+    background-image: url(../images/architecture-buildings-another-city.jpg);
     background-size: cover;
     height: calc(100vh - 64px);
     margin-bottom: 0;
@@ -26,6 +26,10 @@ body{
     background-color: white;
     border-radius: 5px;
     
+}
+
+#submit{
+    background-color: #ff8a65;
 }
 
 #btn-col{
@@ -76,11 +80,11 @@ body{
 }
 
 .collapsible-header{
-    background-color: #fb8c00;
+    background-color: #ff8a65;
 }
 
 .collapsible-header{
-    background-color: #fb8c00;
+    background-color: #ff8a65;
 }
 tr{
     color:#1a237e;
