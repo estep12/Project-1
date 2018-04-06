@@ -25,12 +25,7 @@ body{
     margin-top: calc(50vh - 64px);
     background-color: white;
     border-radius: 5px;
-    width: 400px;
     
-}
-
-.tp-autocomplete{
-    width: 1000px;
 }
 
 #btn-col{
@@ -98,9 +93,13 @@ tr{
     height: 100px;
 }
 
+
 .dropdown-content {
     top: 64px!important;
 }
+
+
+
 
 .tp-autocomplete {
     max-width: none;
