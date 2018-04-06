@@ -34,19 +34,12 @@
     </nav>
 
 
-    <div class="container">
+
         <div class="row" id="search-row">
-            <div class="col m3"></div>
 
             <form class="form-group">
-                <div class="col m6" id="search-col">
-
-
-
-                    <div>
+                <div class="col m6 offset-m3" id="search-col">
                         <input type="text" id="teleport-autocomplete" class="my-input" name="field" tabindex="1" autocomplete="off" placeholder="Search">
-                    </div>
-
                 </div>
                 <div class="col m3" id="btn-col">
                     <button type="submit" id="submit" tabindex="2" class="btn waves-effect orange darken-1 z-depth-3">Submit</button>
@@ -54,73 +47,45 @@
             </form>
         </div>
 
-
-        <div class="container">
+        <div class="container" style="display: none;">
             <div class="row">
                 <div class="col m12">
                     <div class="card">
-                        <div class="card-image" <div id="image-div">
-                            <!--class="card"> -->
+                        <div class="card-image" id="city-image">
                             <span id="search-city" class="card-title"></span>
-                            <div id="city-image" class="card-body "></div>
-                            <div id="city-des"></div>
-                            <!-- </div>
-            </div>
-        </div> -->
-                            <!-- 
-        <div class="row"> -->
-                            <div class="col m6">
-                                <!-- <div class="card"> -->
-                                <div id="map">Map Goes Here</div>
-                            </div>
-                            <!-- </div> -->
-
-                            <div class="col m6">
-                                <!-- <div class="card"> -->
-                                <div id="city-info" class="about">City info Goes Here</div>
-                                <table class="centered" class="responsive">
-                                    <thead>
-                                        <tr>
-                                            <th>Category</th>
-                                            <th>Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="scores-tbody-top">
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                        </tr>
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                        </tr>
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                        </tr>
-                                        </tbody>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col m6">
+                                    <div id="map"></div>
+                                    <div id="city-summary"></div>
+                                    <br>
+                                    <div id="city-info"></div>
+                                </div>
+                                <div class="col m5 offset-m1">
+                                    <h6>Highest Scoring Categories</h6>
+                                    <table class="responsive">
                                         <thead>
-                                                <tr>
-                                                    <th>Category</th>
-                                                    <th>Score</th>
-                                                </tr>
-                                            </thead>
-                                        <tbody id="scores-body-bot">
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                        </tr>
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                        </tr>
-                                        <tr>
-                                            <td>test</td>
-                                            <td>test</td>
-                                        </tr>
-                                    </tbody>
-
-                                </table>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="scores-tbody-top">
+                                        </tbody>
+                                    </table>
+                                    <h6>Lowest Scoring Categories</h6>
+                                    <table class="responsive">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="scores-tbody-bot">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -164,7 +129,6 @@
 
             </div>
         </div>
-  
         <!-- <div class="row">
             <ul class="collapsible popout">
                 <li>
