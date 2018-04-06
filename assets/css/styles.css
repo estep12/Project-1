@@ -7,7 +7,7 @@ nav .brand-logo{
     
 }
 body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic', Arial, sans-serif;
 }
 
 .dropdown-trigger{
@@ -16,24 +16,20 @@ body{
 
 #search-row{
     background-image: url(../images/cityscape_image.jpg);
-    height: 460px;
-    border-radius: 5px;
+    background-size: cover;
+    height: calc(100vh - 64px);
+    margin-bottom: 0;
 }
 
 #search-col{
-    margin-top: 25%;
+    margin-top: calc(50vh - 64px);
     background-color: white;
     border-radius: 5px;
-    width: 400px;
     
 }
 
-.tp-autocomplete{
-    width: 1000px;
-}
-
 #btn-col{
-    margin-top: 25%;
+    margin-top: calc(50vh - 64px);
     
 }
 
@@ -46,7 +42,7 @@ body{
     font-size: 20px;
     color:white;
     background: linear-gradient(to bottom, #1a237e 0%, #7986cb 100%); 
-    text-align: left;
+    text-align: center;
 }
 
 .card-title{
@@ -55,7 +51,7 @@ body{
 } 
 
 #map {
-    height: 300px;
+    height: 250px;
 }
 
 #image-div{
@@ -86,5 +82,27 @@ body{
 .collapsible-header{
     background-color: #fb8c00;
 }
+tr{
+    color:#1a237e;
+}
+#icon{
+    float: right;
+    position: relative;
+    bottom: 150px;
+    right: 50px;
+    height: 100px;
+}
 
+.dropdown-content {
+    top: 64px!important;
+}
 
+.tp-autocomplete {
+    max-width: none;
+}
+
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1a237e;
+    -webkit-box-shadow: 0 1px 0 0 #1a237e;
+    box-shadow: 0 1px 0 0 #1a237e;
+}

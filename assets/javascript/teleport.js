@@ -66,9 +66,6 @@ function initMap(latlonobj) {
 
 // function to run API calls
 function apiCalls(searchCity) {
-    $('html, body').animate({
-        scrollTop: $("#image-div").offset().top
-    }, 2000);
     const queryURL = "https://api.teleport.org/api/cities/?search=" + searchCity.split(" ").join("+");
     $.ajax({
         url: queryURL,
@@ -97,9 +94,13 @@ function apiCalls(searchCity) {
             return newCount;
         });
 
+        $(".container").show();
+        $('html, body').animate({
+            scrollTop: $(".container").offset().top
+        }, 2000);
         $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
         $("#explore-city").text(`Explore ${cityName}`);
-        $("#city-info").empty().append($("<p>").text(`Population: ${population}`));
+        $("#city-info").empty().append($("<p>").text(`Population: ${population.toLocaleString()}`));
 
         initMap(latLong);
 
@@ -127,17 +128,22 @@ function apiCalls(searchCity) {
         cityScore = Math.round(response[1].teleport_city_score);
         scores = response[1].categories;
         scores.sort(function(a,b) {return (a.score_out_of_10 > b.score_out_of_10) ? -1 : ((b.score_out_of_10 > a.score_out_of_10) ? 1 : 0);});
-        $("#city-image").empty().append($('<img id="dynamic-img">').attr("src", cityPhotoURL));
-        $("#city-image").append(response[1].summary);
-        $("#city-image p").last().remove();
+        $("#city-image img").remove();
+        $("#city-image").prepend($('<img id="dynamic-img">').attr("src", cityPhotoURL));
+        $("#city-summary").empty().append(response[1].summary);
+        $("#city-summary p").last().remove();
         $('#dynamic-img').attr("style", "width: 100%;");
         $("#city-info").append($("<p>").text(`City Score: ${cityScore} / 100`));
         // TODO: UPDATE TABLE ID
-        $("#scores-tbody").empty();
-        for (let i = 0; i < scores.length; i++) {
-            const newTableRow = $("<tr>").append($("<td>").text(scores[i].name));
-            newTableRow.append($("<td>").text(Math.round(scores[i].score_out_of_10)));
-            $("#scores-tbody").append(newTableRow);
+        $("#scores-tbody-top").empty();
+        $("#scores-tbody-bot").empty();
+        for (let i = 0; i < 3; i++) {
+            const newTableRowTop = $("<tr>").append($("<td>").text(scores[i].name));
+            newTableRowTop.append($("<td>").text(Math.round(scores[i].score_out_of_10)));
+            $("#scores-tbody-top").append(newTableRowTop);
+            const newTableRowBot = $("<tr>").append($("<td>").text(scores[scores.length - i - 1].name));
+            newTableRowBot.append($("<td>").text(Math.round(scores[scores.length - i - 1].score_out_of_10)));
+            $("#scores-tbody-bot").append(newTableRowBot);
         }
     })
 }
