@@ -154,14 +154,17 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
     }
 
     #search-col{
-        margin-left: 10%;
-        width: 80%;
+        margin-left: 15%;
+        width: 50%;
 
     }
 
-    #btn-col{
-        margin-top: 30px;
-        margin-left: 158px;
+    #search-row{
+        background-position-x: center;
+    }
+
+    #teleport-autocomplete{
+        font-size: 12px;
     }
 
     #search-city{
