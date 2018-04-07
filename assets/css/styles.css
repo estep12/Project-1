@@ -4,9 +4,9 @@ nav .brand-logo {
     font-size: 50px;
 }
 
-/* body{
-    font-family: 'Franklin Gothic', Arial, sans-serif;
-} */
+body{
+background: linear-gradient(#1a237e, white)
+}
 
 .dropdown-trigger {
     color: white;
@@ -60,7 +60,8 @@ nav .brand-logo {
 }
 
 #jobs-add-on {
-
+height: 450px;
+overflow: auto;
 }
 
 .popout {
@@ -78,7 +79,7 @@ nav .brand-logo {
 }
 
 tr {
-    color: #1a237e;
+    color: black;
 }
 
 #icon {
@@ -106,4 +107,34 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 #explore-city {
     margin-left: 10px;
     font-size: 28px;
+    color: #1a237e;
+    font-weight: bold;
+}
+
+#city-summary {
+    margin-top: 30px;
+}
+#highestScoring {
+    margin-top: 0px;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #1a237e
+}
+#lowestScoring {
+    margin-top: 25px;
+    text-decoration: underline;
+    font-weight: bold;
+    color: #1a237e;
+}
+
+.table, #map{
+    border-style: inset;
+    border-color: #ff8a65;
+}
+.job {
+    color: black;
+}
+
+.highlight:hover{
+    background: #ff9f82;
 }

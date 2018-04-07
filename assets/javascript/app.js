@@ -50,7 +50,7 @@ $(document).ready(function () {
             weatherP.text("Current Weather Conditions: " + weather);
             $("#weather-add-on").append(weatherP);
             console.log(weatherP);
-
+            
             $("#weather-add-on").append($('<div><img id="icon"></div>'));
             $('#icon').attr("src", iconUrl)
             console.log(iconUrl);

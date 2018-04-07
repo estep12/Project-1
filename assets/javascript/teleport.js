@@ -122,9 +122,9 @@ function apiCalls(searchCity) {
         return Promise.all([urbanAreaRequest, gitHubJobsRequest]);
     }).then((response) => {
         for (let i = 0; i < response[1].length; i++) {
-            const newJobsTableRow = $("<tr>");
-            const newJob = $("<td>").append($("<a>").attr("href",response[1][i].url).text(response[1][i].title));
-            const newcompany = $("<td>").append($("<a>").attr("href",response[1][i].company_url).text(response[1][i].company));
+            const newJobsTableRow = $('<tr class="highlight">');
+            const newJob = $("<td>").append($('<a class="job">').attr("href",response[1][i].url).text(response[1][i].title));
+            const newcompany = $("<td>").append($('<a class="job">').attr("href",response[1][i].company_url).text(response[1][i].company));
             newJobsTableRow.append(newJob);
             newJobsTableRow.append(newcompany);
             $("#jobs-tbody").append(newJobsTableRow);
@@ -157,10 +157,10 @@ function apiCalls(searchCity) {
         $("#scores-tbody-top").empty();
         $("#scores-tbody-bot").empty();
         for (let i = 0; i < 3; i++) {
-            const newTableRowTop = $("<tr>").append($("<td>").text(scores[i].name));
+            const newTableRowTop = $('<tr class="highlight">').append($("<td>").text(scores[i].name));
             newTableRowTop.append($("<td>").text(Math.round(scores[i].score_out_of_10)));
             $("#scores-tbody-top").append(newTableRowTop);
-            const newTableRowBot = $("<tr>").append($("<td>").text(scores[scores.length - i - 1].name));
+            const newTableRowBot = $('<tr class="highlight">').append($("<td>").text(scores[scores.length - i - 1].name));
             newTableRowBot.append($("<td>").text(Math.round(scores[scores.length - i - 1].score_out_of_10)));
             $("#scores-tbody-bot").append(newTableRowBot);
         }
