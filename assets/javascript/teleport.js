@@ -8,6 +8,7 @@ let population;
 let cityPhotoURL;
 let cityScore;
 let scores;
+const weatherApiKey = "d94860da10767bf2";
 
 // initialize firebase
 var config = {
@@ -47,9 +48,6 @@ $("#submit").on("click", (e) => {
 $("#most-searched-dropdown").on("click", "li", function () {
     apiCalls($(this).text());
 });
-
-$(".dropdown-trigger").dropdown();
-
 
 // add google map on search
 function initMap(latlonobj) {
@@ -113,21 +111,90 @@ function apiCalls(searchCity) {
                 method: "GET",
             })
         }
+
         const gitHubJobsRequest = $.ajax({
             url: "https://jobs.github.com/positions.json?location=" + cityName,
             method: "GET",
             dataType: "jsonp"
         })
 
-        return Promise.all([urbanAreaRequest, gitHubJobsRequest]);
+        const weatherQueryURL = "http://api.wunderground.com/api/" + weatherApiKey + "/conditions/q/" + stateName + "/" + cityName + ".json";
+        const weatherRequest = $.ajax({
+            url: weatherQueryURL,
+            method: "GET"
+        })
+
+        const avgWeatherQueryURL = "http://api.wunderground.com/api/" + weatherApiKey + "/almanac/q/" + stateName + "/" + cityName + ".json";
+        const avgWeatherRequest = $.ajax({
+            url: avgWeatherQueryURL,
+            method: "GET"
+        })
+
+        return Promise.all([urbanAreaRequest, gitHubJobsRequest, weatherRequest, avgWeatherRequest]);
     }).then((response) => {
+        $("#jobs-tbody").empty();
+        if (response[1].length === 0) {
+            $("#no-jobs-message").show();
+            $("#jobs-table").hide();
+            $("#jobs-add-on").height("auto");
+        } else {
+            $("#no-jobs-message").hide();
+            $("#jobs-table").show();
+            $("#jobs-add-on").height("450px");
+        }
         for (let i = 0; i < response[1].length; i++) {
             const newJobsTableRow = $('<tr class="highlight">');
-            const newJob = $("<td>").append($('<a class="job">').attr("href",response[1][i].url).text(response[1][i].title));
-            const newcompany = $("<td>").append($('<a class="job">').attr("href",response[1][i].company_url).text(response[1][i].company));
+            const newJob = $("<td>").append($('<a class="job">').attr("href", response[1][i].url).text(response[1][i].title));
+            const newcompany = $("<td>").append($('<a class="job">').attr("href", response[1][i].company_url).text(response[1][i].company));
             newJobsTableRow.append(newJob);
             newJobsTableRow.append(newcompany);
             $("#jobs-tbody").append(newJobsTableRow);
+        }
+
+        if ("current_observation" in response[2]) {
+            $("#weather-row").show();
+            $("#no-weather-message").hide();
+            const weatherResponse = response[2];
+            const temp = weatherResponse.current_observation.temperature_string;
+            const weatherFeels = weatherResponse.current_observation.feelslike_string;
+            const weather = weatherResponse.current_observation.weather;
+            const iconUrl = weatherResponse.current_observation.icon_url;
+
+            $("#weather-current p").remove();
+            let tempP = $("<p>");
+            tempP.text("Current Temperature: " + temp);
+            $("#weather-current").append(tempP);
+
+            let weatherFeelsP = $("<p>");
+            weatherFeelsP.text("Feels like: " + weatherFeels);
+            $("#weather-current").append(weatherFeelsP);
+
+            let weatherP = $("<p>");
+            weatherP.text("Current Weather Conditions: " + weather);
+            $("#weather-current").append(weatherP);
+            
+            $("#weather-pic").append($('<img id="icon">'));
+            $('#icon').attr("src", iconUrl)
+        } else {
+            $("#weather-row").hide();
+            $("#no-weather-message").show();
+        }
+
+        if ("almanac" in response[3]) {
+            const avgWeatherResponse = response[3];
+            const avgHighF = avgWeatherResponse.almanac.temp_high.normal.F;
+            const avgHighC = avgWeatherResponse.almanac.temp_high.normal.C;
+            const avgLowF = avgWeatherResponse.almanac.temp_low.normal.F;
+            const avgLowC = avgWeatherResponse.almanac.temp_low.normal.C;
+
+            $("#weather-average p").remove();
+            let avgHighs = $("<p>");
+            avgHighs.text("Average High: " + avgHighF + " F (" + avgHighC + " C)");
+            $("#weather-average").append(avgHighs);
+
+            let avgLows = $("<p>");
+            avgLows.text("Average Low: " + avgLowF + " F (" + avgLowC + " C)");
+            $("#weather-average").append(avgLows);
         }
 
         if (response[0]) {
@@ -166,3 +233,8 @@ function apiCalls(searchCity) {
         }
     })
 }
+
+$(document).ready(function () {
+    $('.collapsible').collapsible();
+    $(".dropdown-trigger").dropdown();
+});
