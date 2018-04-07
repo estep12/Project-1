@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Reloco</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -63,8 +63,8 @@
                                     <div id="city-info"></div>
                                 </div>
                                 <div class="col m5 offset-m1">
-                                    <h6>Highest Scoring Categories</h6>
-                                    <table class="responsive">
+                                    <h6 id="highestScoring">Highest Scoring Categories</h6>
+                                    <table class="responsive table">
                                         <thead>
                                             <tr>
                                                 <th>Category</th>
@@ -74,8 +74,8 @@
                                         <tbody id="scores-tbody-top">
                                         </tbody>
                                     </table>
-                                    <h6>Lowest Scoring Categories</h6>
-                                    <table class="responsive">
+                                    <h6 id="lowestScoring">Lowest Scoring Categories</h6>
+                                    <table class="responsive table">
                                         <thead>
                                             <tr>
                                                 <th>Category</th>
@@ -131,7 +131,7 @@
                             <i class="material-icons">restaurant</i>Local Dining</div>
                         <div class="collapsible-body" id="food-add-on">
                             <span>
-                              <div class="widget_wrap" style="width:100%;height:400px;display:inline-block;"><iframe id="restaurant-widget" src="https://www.zomato.com/widgets/res_search_widget.php?lat=93.2650&lon=44.9778&theme=red&hideCitySearch=on&hideResSearch=on&sort=rating" style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe></div>
+                              <div class="widget_wrap" style="width:100%;height:400px;display:inline-block;"><iframe id="restaurant-widget" src="https://www.zomato.com/widgets/res_search_widget.php?lat=93.2650&lon=44.9778&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating" style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe></div>
                             </span>
                         </div>
                     </li>
@@ -139,34 +139,6 @@
 
             </div>
         </div>
-        <!-- <div class="row">
-            <ul class="collapsible popout">
-                <li>
-                    <div class="collapsible-header" id="weather-btn">
-                        <i class="material-icons">filter_drama</i>Weather</div>
-                    <div class="collapsible-body" id="weather-add-on">
-                        
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header">
-                        <i class="material-icons">place</i>Jobs</div>
-                    <div class="collapsible-body" id="jobs-add-on">
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="food-btn">
-                        <i class="material-icons">restaurant</i>Local Dining</div>
-                    <div class="collapsible-body" id="food-add-on">
-                        <span>
-                            <div class="widget_wrap" style="width:100%;height:450px;display:inline-block;">
-                                <iframe src="https://www.zomato.com/widgets/res_search_widget.php?city_id=826&theme=red&sort=popularity" style="position:relative;width:100%;height:100%;"
-                                    border="0" frameborder="0"></iframe>
-                            </div>
-                        </span>
-                    </div>
-                </li>
-            </ul> -->
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -175,7 +147,6 @@
         <script src="assets/javascript/teleport-autocomplete.js"></script>
         <script src="assets/javascript/teleport.js"></script>
         <script src="assets/javascript/app.js"></script>
-        <script src="assets/javascript/restaurant.js"></script>
 </body>
 
 </html>
