@@ -103,8 +103,19 @@
                     <li>
                         <div class="collapsible-header" id="weather-btn">
                             <i class="material-icons">filter_drama</i>Weather</div>
-                        <div class="collapsible-body" id="weather-add-on">
-                            <span></span>
+                        <div class="collapsible-body">
+                            <span>
+                                <p id="no-weather-message">We couldn't find any weather information for this city. Try another city.</p>
+                                <div class="row" id="weather-row">
+                                    <div class="col m2" id="weather-pic"></div>
+                                    <div class="col m5" id="weather-current">
+                                        <h6>Current Conditions</h6>
+                                    </div>
+                                    <div class="col m5" id="weather-average">
+                                        <h6>Average Conditions</h6>
+                                    </div>
+                                </div>
+                            </span>
                         </div>
                     </li>
                     <li>
@@ -112,7 +123,8 @@
                             <i class="material-icons">place</i>Jobs</div>
                         <div class="collapsible-body" id="jobs-add-on">
                             <span>
-                                <table>
+                                <p id="no-jobs-message">We couldn't find any jobs for this city. Try another city or check again another day.</p>
+                                <table id="jobs-table">
                                     <thead>
                                         <tr>
                                             <th>Job Title</th>
@@ -146,8 +158,8 @@
         </script>
         <script src="assets/javascript/teleport-autocomplete.js"></script>
         <script src="assets/javascript/teleport.js"></script>
-        <script src="assets/javascript/app.js"></script>
         <script src ="assets/javascript/jobs.js"></script>
+
 </body>
 
 </html>
