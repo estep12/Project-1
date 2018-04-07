@@ -41,8 +41,13 @@ $("#submit").on("click", (e) => {
     const searchCity = $("#teleport-autocomplete").val();
     console.log(searchCity);
     teleport.clear();
-    $("#teleport-autocomplete").val("");
-    apiCalls(searchCity);
+    if (searchCity == ""){
+        $("#teleport-autocomplete").attr("placeholder", "Please enter a valid city name!")
+    }else if (searchCity != ""){
+        $("#teleport-autocomplete").attr("placeholder", "Search");
+        apiCalls(searchCity);
+    }
+    
 });
 
 $("#most-searched-dropdown").on("click", "li", function () {
