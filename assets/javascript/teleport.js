@@ -40,9 +40,15 @@ let teleport = TeleportAutocomplete.init("#teleport-autocomplete");
 $("#submit").on("click", (e) => {
     e.preventDefault();
     const searchCity = $("#teleport-autocomplete").val();
+    console.log(searchCity);
     teleport.clear();
-    $("#teleport-autocomplete").val("");
-    apiCalls(searchCity);
+    if (searchCity == ""){
+        $("#teleport-autocomplete").attr("placeholder", "Please enter a valid city name!")
+    }else if (searchCity != ""){
+        $("#teleport-autocomplete").attr("placeholder", "Search");
+        apiCalls(searchCity);
+    }
+    
 });
 
 $("#most-searched-dropdown").on("click", "li", function () {
@@ -224,10 +230,10 @@ function apiCalls(searchCity) {
         $("#scores-tbody-top").empty();
         $("#scores-tbody-bot").empty();
         for (let i = 0; i < 3; i++) {
-            const newTableRowTop = $('<tr class="highlight">').append($("<td>").text(scores[i].name));
+            const newTableRowTop = $('<tr>').append($("<td>").text(scores[i].name));
             newTableRowTop.append($("<td>").text(Math.round(scores[i].score_out_of_10)));
             $("#scores-tbody-top").append(newTableRowTop);
-            const newTableRowBot = $('<tr class="highlight">').append($("<td>").text(scores[scores.length - i - 1].name));
+            const newTableRowBot = $('<tr>').append($("<td>").text(scores[scores.length - i - 1].name));
             newTableRowBot.append($("<td>").text(Math.round(scores[scores.length - i - 1].score_out_of_10)));
             $("#scores-tbody-bot").append(newTableRowBot);
         }
