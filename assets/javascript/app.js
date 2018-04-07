@@ -14,6 +14,7 @@ $(document).ready(function () {
 
 
     function weatherApi() {
+        $("#weather-add-on").empty();
         let queryURL = "http://api.wunderground.com/api/" + weatherApiKey + "/conditions/q/" + stateName + "/" + cityName + ".json";
 
         let temp;
