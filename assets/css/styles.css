@@ -138,3 +138,6 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 .highlight:hover{
     background: #ff9f82;
 }
+.collapsible-header:hover{
+    background: linear-gradient(grey, #ff9f82)
+}
