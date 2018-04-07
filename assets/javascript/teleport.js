@@ -44,7 +44,7 @@ $("#submit").on("click", (e) => {
     apiCalls(searchCity);
 });
 
-$("#most-searched-dropdown").on("click", "li", function() {
+$("#most-searched-dropdown").on("click", "li", function () {
     apiCalls($(this).text());
 });
 
@@ -101,23 +101,42 @@ function apiCalls(searchCity) {
         $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
         $("#explore-city").text(`Explore ${cityName}`);
         $("#city-info").empty().append($("<p>").text(`Population: ${population.toLocaleString()}`));
+        let newSrc = "https://www.zomato.com/widgets/res_search_widget.php?lat=" + latLong.lat + "&lon=" + latLong.lng + "&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating"
+        $("#restaurant-widget").attr("src", newSrc);
 
         initMap(latLong);
 
+        let urbanAreaRequest;
         if (response._links["city:urban_area"]) {
-            return $.ajax({
+            urbanAreaRequest = $.ajax({
                 url: response._links["city:urban_area"].href,
                 method: "GET",
             })
         }
+        const gitHubJobsRequest = $.ajax({
+            url: "https://jobs.github.com/positions.json?location=" + cityName,
+            method: "GET",
+            dataType: "jsonp"
+        })
+
+        return Promise.all([urbanAreaRequest, gitHubJobsRequest]);
     }).then((response) => {
-        if (response) {
-            const imageRequest =  $.ajax({
-                url: response._links["ua:images"].href,
+        for (let i = 0; i < response[1].length; i++) {
+            const newJobsTableRow = $("<tr>");
+            const newJob = $("<td>").append($("<a>").attr("href",response[1][i].url).text(response[1][i].title));
+            const newcompany = $("<td>").append($("<a>").attr("href",response[1][i].company_url).text(response[1][i].company));
+            newJobsTableRow.append(newJob);
+            newJobsTableRow.append(newcompany);
+            $("#jobs-tbody").append(newJobsTableRow);
+        }
+
+        if (response[0]) {
+            const imageRequest = $.ajax({
+                url: response[0]._links["ua:images"].href,
                 method: "GET"
             })
-            const scoresRequest =  $.ajax({
-                url: response._links["ua:scores"].href,
+            const scoresRequest = $.ajax({
+                url: response[0]._links["ua:scores"].href,
                 method: "GET"
             })
 
@@ -127,7 +146,7 @@ function apiCalls(searchCity) {
         cityPhotoURL = response[0].photos[0].image.web;
         cityScore = Math.round(response[1].teleport_city_score);
         scores = response[1].categories;
-        scores.sort(function(a,b) {return (a.score_out_of_10 > b.score_out_of_10) ? -1 : ((b.score_out_of_10 > a.score_out_of_10) ? 1 : 0);});
+        scores.sort(function (a, b) { return (a.score_out_of_10 > b.score_out_of_10) ? -1 : ((b.score_out_of_10 > a.score_out_of_10) ? 1 : 0); });
         $("#city-image img").remove();
         $("#city-image").prepend($('<img id="dynamic-img">').attr("src", cityPhotoURL));
         $("#city-summary").empty().append(response[1].summary);
