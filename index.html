@@ -33,8 +33,6 @@
         </div>
     </nav>
 
-
-
     <div class="row" id="search-row">
         <h4 id="moto"> We know finding a new hometown can be super stressful.
             <br>
@@ -50,7 +48,52 @@
         </form>
     </div>
 
-    <div class="container" style="display: none;">
+        <div class="container" style="display: none;">
+            <div class="row">
+                <div class="col m12">
+                    <div class="card">
+                        <div class="card-image" id="city-image">
+                            <span id="search-city" class="card-title"></span>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col m6" id="map-col">
+                                    <div id="map"></div>
+                                    <div id="city-summary"></div>
+                                    <br>
+                                    <div id="city-info"></div>
+                                </div>
+                                <div class="col m5 offset-m1" id="scoring-col">
+                                    <h6 id="highestScoring">Highest Scoring Categories</h6>
+                                    <table class="responsive table">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="scores-tbody-top">
+                                        </tbody>
+                                    </table>
+                                    <h6 id="lowestScoring">Lowest Scoring Categories</h6>
+                                    <table class="responsive table">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Score</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="scores-tbody-bot">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+<!--     <div class="container" style="display: none;">
         <div class="row">
             <div class="col m12">
                 <div class="card">
@@ -92,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="row">
