@@ -19,17 +19,29 @@ background: linear-gradient(#1a237e, white)
     background-size: cover;
     height: calc(100vh - 64px);
     margin-bottom: 0;
+    
+}
+
+#moto{
+    margin: 0;
+    color: white;
+    text-align: left;
+    padding-top: 5%;
+    width: 50%;
+    margin-left: 25%;
+    font-weight: bold;
+    font-style: italic;
 }
 
 #search-col {
-    margin-top: calc(50vh - 64px);
+    margin-top: calc(20vh - 64px);
     background-color: white;
     border-radius: 5px;
 }
 
 #btn-col{
 
-    margin-top: calc(50vh - 64px);
+    margin-top: calc(20vh - 64px);
 }
 
 #submit {
@@ -157,11 +169,22 @@ h6 {
     #search-col{
         margin-left: 15%;
         width: 50%;
+        margin-top: calc(30vh - 64px);
+    }
 
+    #btn-col {
+        margin-top: calc(30vh - 64px);
     }
 
     #search-row{
         background-position-x: center;
+    }
+
+    #moto{
+        font-size: 25px;
+        padding-top: 12%;
+        width: 80%;
+        margin-left: 15%;
     }
 
     #teleport-autocomplete{
@@ -183,9 +206,9 @@ h6 {
     }
 
     #icon{
-        right: 0;
-        margin-top: 18px;
-        height: 80px;
+        width: 100px;
+        height: 125px;
+        margin-top: 0;
     }
 
 }
