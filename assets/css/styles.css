@@ -139,7 +139,11 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 
 .highlight:hover{
     background: #ff9f82;
+  
+  .collapsible-header:hover{
+    background: linear-gradient(grey, #ff9f82)
 }
+
 
 
 @media screen and (max-width: 414px) {
@@ -178,4 +182,5 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
         margin-top: 18px;
         height: 80px;
     }
+
 }
