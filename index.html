@@ -49,112 +49,110 @@
         </form>
     </div>
 
-        <div class="container" style="display: none;">
-            <div class="row">
-                <div class="col m12">
-                    <div class="card">
-                        <div class="card-image" id="city-image">
-                            <span id="search-city" class="card-title"></span>
-                        </div>
-                        <div class="card-content">
-                            <div class="row">
-                                <div class="col m6" id="map-col">
-                                    <div id="map"></div>
-                                    <div id="city-summary"></div>
-                                    <br>
-                                    <div id="city-info"></div>
-                                </div>
-                                <div class="col m5 offset-m1" id="scoring-col">
-                                    <h6 id="highestScoring">Highest Scoring Categories</h6>
-                                    <table class="responsive table">
-                                        <thead>
-                                            <tr>
-                                                <th>Category</th>
-                                                <th>Score</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="scores-tbody-top">
-                                        </tbody>
-                                    </table>
-                                    <h6 id="lowestScoring">Lowest Scoring Categories</h6>
-                                    <table class="responsive table">
-                                        <thead>
-                                            <tr>
-                                                <th>Category</th>
-                                                <th>Score</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="scores-tbody-bot">
-                                        </tbody>
-                                    </table>
-                                </div>
+    <div class="container" style="display: none;">
+        <div class="row">
+            <div class="col m12">
+                <div class="card">
+                    <div class="card-image" id="city-image">
+                        <span id="search-city" class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col m6" id="map-col">
+                                <div id="map"></div>
+                                <div id="city-summary"></div>
+                                <br>
+                                <div id="city-info"></div>
+                            </div>
+                            <div class="col m5 offset-m1" id="scoring-col">
+                                <h6 id="highestScoring">Highest Scoring Categories</h6>
+                                <table class="responsive table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="scores-tbody-top">
+                                    </tbody>
+                                </table>
+                                <h6 id="lowestScoring">Lowest Scoring Categories</h6>
+                                <table class="responsive table">
+                                    <thead>
+                                        <tr>
+                                            <th>Category</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="scores-tbody-bot">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
-
-        <div class="row">
-
-            <div class="explore-city">
-                <h3 id="explore-city">Explore</h3>
             </div>
-        </div>
-        <div class="row">
-            <ul class="collapsible popout">
-                <li>
-                    <div class="collapsible-header" id="weather-btn">
-                        <i class="material-icons">filter_drama</i>Weather</div>
-                    <div class="collapsible-body">
-                        <span>
-                            <p id="no-weather-message">We couldn't find any weather information for this city. Try another city.</p>
-                            <div class="row" id="weather-row">
-                                <div class="col m2" id="weather-pic"></div>
-                                <div class="col m5" id="weather-current">
-                                    <h6>Current Conditions</h6>
-                                </div>
-                                <div class="col m5" id="weather-average">
-                                    <h6>Average Conditions</h6>
-                                </div>
-                            </div>
-                        </span>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="jobs-btn">
-                        <i class="material-icons">business_center</i>Jobs</div>
-                    <div class="collapsible-body" id="jobs-add-on">
-                        <span>
-                            <p id="no-jobs-message">We couldn't find any jobs for this city. Try another city or check again another day.</p>
-                            <table id="jobs-table">
-                                <thead>
-                                    <tr>
-                                        <th>Job Title</th>
-                                        <th>Company</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="jobs-tbody">
+    </div>
 
-                                </tbody>
-                            </table>
-                        </span>
-                    </div>
-                </li>
-                <li>
-                    <div class="collapsible-header" id="food-btn">
-                        <i class="material-icons">restaurant</i>Local Dining</div>
-                    <div class="collapsible-body" id="food-add-on">
-                        <span>
-                            <div class="widget_wrap">
-                                <iframe id="restaurant-widget" src="https://www.zomato.com/widgets/res_search_widget.php?lat=93.2650&lon=44.9778&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating"
-                                    style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe>
-                            </div>
-                        </span>
-                    </div>
-                </li>
-            </ul>
+    <div class="row">
 
+        <div class="explore-city">
+            <h3 id="explore-city">Explore</h3>
         </div>
+    </div>
+    <div class="row">
+        <ul class="collapsible popout">
+            <li>
+                <div class="collapsible-header" id="weather-btn">
+                    <i class="material-icons">filter_drama</i>Weather</div>
+                <div class="collapsible-body">
+                    <span>
+                        <p id="no-weather-message">We couldn't find any weather information for this city. Try another city.</p>
+                        <div class="row" id="weather-row">
+                            <div class="col m2" id="weather-pic"></div>
+                            <div class="col m5" id="weather-current">
+                                <h6>Current Conditions</h6>
+                            </div>
+                            <div class="col m5" id="weather-average">
+                                <h6>Average Conditions</h6>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header" id="jobs-btn">
+                    <i class="material-icons">business_center</i>Jobs</div>
+                <div class="collapsible-body" id="jobs-add-on">
+                    <span>
+                        <p id="no-jobs-message">We couldn't find any jobs for this city. Try another city or check again another day.</p>
+                        <table id="jobs-table">
+                            <thead>
+                                <tr>
+                                    <th>Job Title</th>
+                                    <th>Company</th>
+                                </tr>
+                            </thead>
+                            <tbody id="jobs-tbody"></tbody>
+                        </table>
+                    </span>
+                </div>
+            </li>
+            <li>
+                <div class="collapsible-header" id="food-btn">
+                    <i class="material-icons">restaurant</i>Local Dining</div>
+                <div class="collapsible-body" id="food-add-on">
+                    <span>
+                        <div class="widget_wrap">
+                            <iframe id="restaurant-widget" src="https://www.zomato.com/widgets/res_search_widget.php?lat=93.2650&lon=44.9778&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating"
+                                style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe>
+                        </div>
+                    </span>
+                </div>
+            </li>
+        </ul>
+
+    </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

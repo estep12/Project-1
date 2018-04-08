@@ -1,5 +1,4 @@
 nav .brand-logo {
-    /* font-family: 'Chicle', cursive; */
     margin-left: 30px;
     font-size: 50px;
 }
@@ -16,7 +15,6 @@ background: linear-gradient(#1a237e, white)
 .dropdown-trigger {
     color: white;
 }
-
 
 #search-row{
     background-image: url(../images/architecture-buildings-another-city.jpg);
@@ -64,8 +62,6 @@ background: linear-gradient(#1a237e, white)
     height: 250px;
 }
 
-
-
 #city-image {
     display: inline-block;
 }
@@ -78,15 +74,12 @@ background: linear-gradient(#1a237e, white)
     overflow: auto;
 }
 
-
-
 #food-add-on{
     padding: 0;
 }
 .collapsible-header {
     color: white;
 }
-
 
 .collapsible-header{
     background-color: #ff8a65;
@@ -208,11 +201,6 @@ h6 {
         font-size: 20px;
     }
 
-    /* #scoring-col{
-        margin-left: 40px;
-        margin-top: 10px;
-    } */
-
     #weather-add-on{
         font-size: small;
     }
@@ -229,14 +217,9 @@ h6 {
     color: #1a237e;
 }
 
-/* #restaurant-widget {
-    margin-top: -58px;
-} */
-
 .widget_wrap {
     width: 100%;
     overflow: hidden;
     height: 400px;
-    /* height: 368px; */
     display: inline-block;
 }
