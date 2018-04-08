@@ -1,3 +1,6 @@
+/*----------------------------------------
+/ navbar
+/----------------------------------------*/
 nav .brand-logo {
     margin-left: 30px;
     font-size: 50px;
@@ -8,112 +11,121 @@ nav .brand-logo {
     padding-top: 10px;
 }
 
-body{
-background: linear-gradient(#1a237e, white)
+.dropdown-content {
+    top: 64px !important;
 }
 
-.dropdown-trigger {
-    color: white;
+.dropdown-content li>a {
+    color: #1a237e;
 }
 
-#search-row{
-    background-image: url(../images/architecture-buildings-another-city.jpg);
 
+/*----------------------------------------
+/ search row
+/----------------------------------------*/
+.search-row {
+    background-image: url(../images/architecture-buildings-city.jpg);
     background-size: cover;
+    background-position-x: -175px;
     height: calc(100vh - 64px);
     margin-bottom: 0;
-    
 }
 
-#moto{
-    margin: 0;
+.moto,
+form {
+    margin-top: calc((100vh - 304px) / 4);
+}
+
+.moto {
     color: white;
     text-align: left;
-    padding-top: 5%;
-    width: 50%;
-    margin-left: 25%;
     font-weight: bold;
     font-style: italic;
 }
 
-#search-col {
-    margin-top: calc(20vh - 64px);
+.search-col {
     background-color: white;
     border-radius: 5px;
-}
-
-#btn-col{
-
-    margin-top: calc(20vh - 64px);
 }
 
 #submit {
     height: 51px;
     border-radius: 5px;
-    background-color: #ff8a65
-}
-
-.card-title {
-    color: #1a237e;
-    font-size: 28px;
-}
-
-#map {
-    height: 250px;
-}
-
-#city-image {
-    display: inline-block;
-}
-
-#weather-add-on {
-    color: black;
-}
-
-#jobs-add-on {
-    overflow: auto;
-}
-
-#food-add-on{
-    padding: 0;
-}
-.collapsible-header {
-    color: white;
-}
-
-.collapsible-header{
     background-color: #ff8a65;
-}
-
-.collapsible-header{
-    background-color: #ff8a65;
-
-}
-
-.collapsible-body{
-    background-color: white;
-}
-
-tr {
-    color: black;
-}
-
-#icon {
     width: 100%;
-}
-
-.dropdown-content {
-    top: 64px !important;
 }
 
 .tp-autocomplete {
     max-width: none;
 }
 
+.tp-ac__list {
+    z-index: 2;
+}
+
 input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
     border-bottom: 1px solid #1a237e;
     -webkit-box-shadow: 0 1px 0 0 #1a237e;
     box-shadow: 0 1px 0 0 #1a237e;
+}
+
+
+/*----------------------------------------
+/ city info section
+/----------------------------------------*/
+body {
+    background: linear-gradient(#1a237e, white)
+}
+
+#map {
+    height: 250px;
+}
+
+#city-summary,
+.lowest-scoring {
+    margin-top: 30px;
+}
+
+.highest-scoring {
+    margin-top: 0;
+}
+
+h6 {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #1a237e;
+}
+
+.table,
+#map {
+    border-style: inset;
+    border-color: #ff8a65;
+}
+
+
+/*----------------------------------------
+/ explore section
+/----------------------------------------*/
+#jobs-add-on {
+    overflow: auto;
+    max-height: 400px;
+}
+
+#food-add-on {
+    padding: 0;
+}
+
+.collapsible-header {
+    color: white;
+    background-color: #ff8a65;
+}
+
+.collapsible-body {
+    background-color: white;
+}
+
+#icon {
+    width: 100%;
 }
 
 #explore-city {
@@ -123,103 +135,73 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
     font-weight: bold;
 }
 
-#city-summary {
-    margin-top: 30px;
-}
-#highestScoring {
-    margin-top: 0px;
-}
-
-#lowestScoring {
-    margin-top: 25px;
-}
-
-h6 {
-    text-decoration: underline;
-    font-weight: bold;
-    color: #1a237e;
-}
-
-.table, #map{
-    border-style: inset;
-    border-color: #ff8a65;
-}
 .job {
     color: black;
 }
 
-.highlight:hover{
+.highlight:hover {
     background: #ff9f82;
-  
 }
 
-.collapsible-header:hover{
+.collapsible-header:hover {
     background: linear-gradient(#1a237e, #ff9f82)
 }
 
-@media screen and (max-width: 600px){
-    #scoring-col{
-        margin-left: 25px;
-        margin-right: 0px;
-        margin-top: 10px;
-    }
-}
-@media screen and (max-width: 414px) {
-
-    nav .brand-logo{
-        margin-left: 0;
-    }
-
-    #search-col{
-        margin-left: 15%;
-        width: 50%;
-        margin-top: calc(30vh - 64px);
-    }
-
-    #btn-col {
-        margin-top: calc(30vh - 64px);
-    }
-
-    #search-row{
-        background-position-x: center;
-    }
-
-    #moto{
-        font-size: 25px;
-        padding-top: 12%;
-        width: 80%;
-        margin-left: 15%;
-    }
-
-    #teleport-autocomplete{
-        font-size: 12px;
-    }
-
-    #search-city{
-        margin-left: 10px;
-        padding: 0px;
-        font-size: 20px;
-    }
-
-    #weather-add-on{
-        font-size: small;
-    }
-
-    #icon{
-        width: 100px;
-        height: 125px;
-        margin-top: 0;
-    }
-
-}
-
-.dropdown-content li>a, .dropdown-content li>span {
-    color: #1a237e;
-}
-
-.widget_wrap {
+.widget-wrap {
     width: 100%;
     overflow: hidden;
     height: 400px;
     display: inline-block;
+    margin-bottom: -11px;
+}
+
+
+/*----------------------------------------
+/ media queries
+/----------------------------------------*/
+@media screen and (max-width: 992px) {
+    nav .brand-logo {
+        margin-left: 0;
+    }
+
+    #icon {
+        max-width: 100px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .brand-logo img {
+        height: 54px;
+        padding-bottom: 10px;
+    }
+
+    .search-row {
+        height: calc(100vh - 56px);
+    }
+
+    .btn-col {
+        padding: 0px!important;
+        margin-top: 10px;
+    }
+
+    .moto {
+        font-size: 25px;
+    }
+
+    #teleport-autocomplete {
+        font-size: 12px;
+    }
+
+    .collapsible-body {
+        padding: 1rem;
+    }
+
+    #scoring-col {
+        margin-top: 30px;
+    }
+
+    #search-city {
+        padding: 0 24px;
+        font-size: 20px;
+    }
 }
