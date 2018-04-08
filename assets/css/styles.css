@@ -161,7 +161,7 @@ h6 {
 }
 
 .collapsible-header:hover{
-    background: linear-gradient(grey, #ff9f82)
+    background: linear-gradient(#1a237e, #ff9f82)
 }
 
 @media screen and (max-width: 600px){
