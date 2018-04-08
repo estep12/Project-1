@@ -1,7 +1,12 @@
 nav .brand-logo {
-    font-family: 'Chicle', cursive;
+    /* font-family: 'Chicle', cursive; */
     margin-left: 30px;
     font-size: 50px;
+}
+
+.brand-logo img {
+    height: 54px;
+    padding-top: 10px;
 }
 
 body{
@@ -215,4 +220,16 @@ h6 {
 
 .dropdown-content li>a, .dropdown-content li>span {
     color: #1a237e;
+}
+
+/* #restaurant-widget {
+    margin-top: -58px;
+} */
+
+.widget_wrap {
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+    /* height: 368px; */
+    display: inline-block;
 }

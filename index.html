@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reloco</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Chicle" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
@@ -22,7 +23,7 @@
     </ul>
     <nav>
         <div class="nav-wrapper color: #1a237e indigo darken-4" id="reloco-nav">
-            <a href="#" class="brand-logo">Reloco</a>
+            <a href="#" class="brand-logo"><img src="assets/images/reloco.png"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
                     <a class="dropdown-trigger" href="#!" data-target="most-searched-dropdown">Most Searched Cities
@@ -91,51 +92,6 @@
                         </div>
                     </div>
                 </div>
-
-
-<!--     <div class="container" style="display: none;">
-        <div class="row">
-            <div class="col m12">
-                <div class="card">
-                    <div class="card-image" id="city-image">
-                        <span id="search-city" class="card-title"></span>
-                    </div>
-                    <div class="card-content">
-                        <div class="row">
-                            <div class="col m6">
-                                <div id="map"></div>
-                                <div id="city-summary"></div>
-                                <br>
-                                <div id="city-info"></div>
-                            </div>
-                            <div class="col m5 offset-m1" id="scoring-col">
-                                <h6 id="highestScoring">Highest Scoring Categories</h6>
-                                <table class="responsive table">
-                                    <thead>
-                                        <tr>
-                                            <th>Category</th>
-                                            <th>Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="scores-tbody-top">
-                                    </tbody>
-                                </table>
-                                <h6 id="lowestScoring">Lowest Scoring Categories</h6>
-                                <table class="responsive table">
-                                    <thead>
-                                        <tr>
-                                            <th>Category</th>
-                                            <th>Score</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="scores-tbody-bot">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
 
         <div class="row">
@@ -166,7 +122,7 @@
                 </li>
                 <li>
                     <div class="collapsible-header" id="jobs-btn">
-                        <i class="material-icons">place</i>Jobs</div>
+                        <i class="material-icons">business_center</i>Jobs</div>
                     <div class="collapsible-body" id="jobs-add-on">
                         <span>
                             <p id="no-jobs-message">We couldn't find any jobs for this city. Try another city or check again another day.</p>
@@ -189,7 +145,7 @@
                         <i class="material-icons">restaurant</i>Local Dining</div>
                     <div class="collapsible-body" id="food-add-on">
                         <span>
-                            <div class="widget_wrap" style="width:100%;height:400px;display:inline-block;">
+                            <div class="widget_wrap">
                                 <iframe id="restaurant-widget" src="https://www.zomato.com/widgets/res_search_widget.php?lat=93.2650&lon=44.9778&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating"
                                     style="position:relative;width:100%;height:100%;" border="0" frameborder="0"></iframe>
                             </div>
@@ -207,7 +163,6 @@
     </script>
     <script src="assets/javascript/teleport-autocomplete.js"></script>
     <script src="assets/javascript/teleport.js"></script>
-    <script src="assets/javascript/jobs.js"></script>
 
 </body>
 
