@@ -1,4 +1,6 @@
-// variables to set on city search
+/*-------------------------------------------------------------------------
+/ GLOBAL VARIABLES
+/-------------------------------------------------------------------------*/
 let cityName;
 let stateName;
 let countryName;
@@ -9,8 +11,12 @@ let cityPhotoURL;
 let cityScore;
 let scores;
 const weatherApiKey = "d94860da10767bf2";
+const jobApiKey = "96736d32f82b972c6e743b723d5d4a1d"
 
-// initialize firebase
+
+/*-------------------------------------------------------------------------
+/ INITIALIZE FIREBASE
+/-------------------------------------------------------------------------*/
 var config = {
     apiKey: "AIzaSyDtbDtrYHKNrdkYMqAmMAXxcHhIa4tLW-8",
     authDomain: "relocation-app-bd038.firebaseapp.com",
@@ -33,8 +39,12 @@ database.ref().orderByValue().limitToLast(3).on("value", (snapshot) => {
     console.log(`Errors handled: ${errorObject.code}`);
 });
 
-// initialize teleport autocomplete widget
+
+/*-------------------------------------------------------------------------
+/ INITIALIZE TELEPORT SEARCH WIDGET
+/-------------------------------------------------------------------------*/
 let teleport = TeleportAutocomplete.init("#teleport-autocomplete");
+teleport.geoLocate = false;
 
 // make teleport API calls when click the submit button
 $("#submit").on("click", (e) => {
@@ -53,6 +63,10 @@ $("#most-searched-dropdown").on("click", "li", function () {
     apiCalls($(this).text());
 });
 
+
+/*-------------------------------------------------------------------------
+/ FUNCTIONS
+/-------------------------------------------------------------------------*/
 // add google map on search
 function initMap(latlonobj) {
     // var uluru = { lat: -25.363, lng: 131.044 };
@@ -64,6 +78,11 @@ function initMap(latlonobj) {
         position: latlonobj,
         map: map
     });
+}
+
+// resize zomato widget when it loads
+function zomatoLoad(obj) {
+    console.log(obj);
 }
 
 // function to run API calls
@@ -107,9 +126,10 @@ function apiCalls(searchCity) {
             }, 2000);
             $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
             $("#explore-city").text(`Explore ${cityName}`);
-            $("#city-info").empty().append($("<p>").text(`Population: ${population.toLocaleString()}`));
+            $("#city-info").empty().append($("<p>").append(`<b>Population: </b>${population.toLocaleString()}`));
             let newSrc = "https://www.zomato.com/widgets/res_search_widget.php?lat=" + latLong.lat + "&lon=" + latLong.lng + "&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating"
             $("#restaurant-widget").attr("src", newSrc);
+            // console.log("res text", $("#restaurant-widget").contents().find(".res").text());
 
             initMap(latLong);
 
@@ -139,20 +159,26 @@ function apiCalls(searchCity) {
                 method: "GET"
             })
 
-            return Promise.all([urbanAreaRequest, gitHubJobsRequest, weatherRequest, avgWeatherRequest]);
+            const queryCityJobURL = "https://authenticjobs.com/api/?api_key=" + jobApiKey + "&method=aj.jobs.search&location=" + cityName + "&format=json";
+            const authJobsByCityRequest = $.ajax({
+                url: queryCityJobURL,
+                method: "GET",
+                dataType: "jsonp"
+            })
+
+            const queryStateJobURL = "https://authenticjobs.com/api/?api_key=" + jobApiKey + "&method=aj.jobs.search&location=" + stateName + "&format=json";
+            const authJobsByStateRequest = $.ajax({
+                url: queryStateJobURL,
+                method: "GET",
+                dataType: "jsonp"
+            })
+
+            return Promise.all([urbanAreaRequest, gitHubJobsRequest, weatherRequest, avgWeatherRequest, authJobsByCityRequest, authJobsByStateRequest]);
         }
     }).then((response) => {
         if (response) {
+            // populate jobs table with GitHub jobs
             $("#jobs-tbody").empty();
-            if (response[1].length === 0) {
-                $("#no-jobs-message").show();
-                $("#jobs-table").hide();
-                $("#jobs-add-on").height("auto");
-            } else {
-                $("#no-jobs-message").hide();
-                $("#jobs-table").show();
-                $("#jobs-add-on").height("450px");
-            }
             for (let i = 0; i < response[1].length; i++) {
                 const newJobsTableRow = $('<tr class="highlight">');
                 const newJob = $("<td>").append($('<a class="job">').attr("href", response[1][i].url).text(response[1][i].title));
@@ -162,6 +188,7 @@ function apiCalls(searchCity) {
                 $("#jobs-tbody").append(newJobsTableRow);
             }
 
+            // populate current weather info
             if ("current_observation" in response[2]) {
                 $("#weather-row").show();
                 $("#no-weather-message").hide();
@@ -173,15 +200,15 @@ function apiCalls(searchCity) {
 
                 $("#weather-current p").remove();
                 let tempP = $("<p>");
-                tempP.text("Current Temperature: " + temp);
+                tempP.append("<b>Current Temperature: </b>" + temp);
                 $("#weather-current").append(tempP);
 
                 let weatherFeelsP = $("<p>");
-                weatherFeelsP.text("Feels like: " + weatherFeels);
+                weatherFeelsP.append("<b>Feels like: </b>" + weatherFeels);
                 $("#weather-current").append(weatherFeelsP);
 
                 let weatherP = $("<p>");
-                weatherP.text("Current Weather Conditions: " + weather);
+                weatherP.append("<b>Current Weather Conditions: </b>" + weather);
                 $("#weather-current").append(weatherP);
 
                 $("#weather-pic").empty();
@@ -192,6 +219,7 @@ function apiCalls(searchCity) {
                 $("#no-weather-message").show();
             }
 
+            // populate average weather info
             if ("almanac" in response[3]) {
                 const avgWeatherResponse = response[3];
                 const avgHighF = avgWeatherResponse.almanac.temp_high.normal.F;
@@ -201,14 +229,53 @@ function apiCalls(searchCity) {
 
                 $("#weather-average p").remove();
                 let avgHighs = $("<p>");
-                avgHighs.text("Average High: " + avgHighF + " F (" + avgHighC + " C)");
+                avgHighs.append("<b>Average High: </b>" + avgHighF + " F (" + avgHighC + " C)");
                 $("#weather-average").append(avgHighs);
 
                 let avgLows = $("<p>");
-                avgLows.text("Average Low: " + avgLowF + " F (" + avgLowC + " C)");
+                avgLows.append("<b>Average Low: </b>" + avgLowF + " F (" + avgLowC + " C)");
                 $("#weather-average").append(avgLows);
             }
 
+            // populate authentic jobs info
+            let authenticJobsArray = [];
+            let totalCityListings = response[4].listings.total;
+            for (let i = 0; i < totalCityListings; i++) {
+                authenticJobsArray.push(response[4].listings.listing[i]);
+            }
+            let totalStateListings = response[5].listings.total;
+            for (let i = 0; i < totalStateListings; i++) {
+                if (totalCityListings === 0) {
+                    authenticJobsArray.push(response[5].listings.listing[i]);
+                } else {
+                    for (let j = 0; j < totalCityListings; j++) {
+                        if (response[5].listings.listing[i].id !== authenticJobsArray[j].id) {
+                            authenticJobsArray.push(response[5].listings.listing[i]);
+                        }
+                    }
+                }
+            }
+            for (let i = 0; i < authenticJobsArray.length; i++) {
+                const newJobsTableRow = $('<tr class="highlight">');
+                const newJob = $("<td>").append($('<a class="job">').attr("href", authenticJobsArray[i].apply_url).text(authenticJobsArray[i].title));
+                const newcompany = $("<td>").append($('<a class="job">').attr("href", authenticJobsArray[i].company.url).text(authenticJobsArray[i].company.name));
+                newJobsTableRow.append(newJob);
+                newJobsTableRow.append(newcompany);
+                $("#jobs-tbody").append(newJobsTableRow);
+            }
+
+            // check if any jobs were populated and hide table if no jobs
+            if ($("#jobs-tbody").children().length > 0) {
+                $("#no-jobs-message").hide();
+                $("#jobs-table").show();
+                $("#jobs-add-on").height("450px");
+            } else {
+                $("#no-jobs-message").show();
+                $("#jobs-table").hide();
+                $("#jobs-add-on").height("auto");
+            }
+
+            // create request to get urban area images and scores
             if (response[0]) {
                 const imageRequest = $.ajax({
                     url: response[0]._links["ua:images"].href,
@@ -218,7 +285,6 @@ function apiCalls(searchCity) {
                     url: response[0]._links["ua:scores"].href,
                     method: "GET"
                 })
-
                 return Promise.all([imageRequest, scoresRequest]);
             }
         }
@@ -233,7 +299,7 @@ function apiCalls(searchCity) {
             $("#city-summary").empty().append(response[1].summary);
             $("#city-summary p").last().remove();
             $('#dynamic-img').attr("style", "width: 100%;");
-            $("#city-info").append($("<p>").text(`City Score: ${cityScore} / 100`));
+            $("#city-info").append($("<p>").append(`<b>City Score: </b>${cityScore} / 100`));
             $("#map-col").removeClass("offset-m3");
             $("#scoring-col").show();
             $("#scores-tbody-top").empty();
@@ -248,13 +314,16 @@ function apiCalls(searchCity) {
             }
         } else {
             $("#city-image img").remove();
-            $("#city-image").prepend($('<img id="dynamic-img">').attr("src", "assets/images/skyline-quiz-chicago.jpg"));
+            $("#city-image").prepend($('<img id="dynamic-img">').attr("src", "assets/images/placeholder-city-image.png"));
             $("#map-col").addClass("offset-m3");
             $("#scoring-col").hide();
         }
     })
 }
 
+/*-------------------------------------------------------------------------
+/ MATERIALIZE HELPERS
+/-------------------------------------------------------------------------*/
 $(document).ready(function () {
     $('.collapsible').collapsible();
     $(".dropdown-trigger").dropdown();
