@@ -164,7 +164,13 @@ h6 {
     background: linear-gradient(grey, #ff9f82)
 }
 
-
+@media screen and (max-width: 600px){
+    #scoring-col{
+        margin-left: 25px;
+        margin-right: 0px;
+        margin-top: 10px;
+    }
+}
 @media screen and (max-width: 414px) {
 
     nav .brand-logo{
@@ -202,10 +208,10 @@ h6 {
         font-size: 20px;
     }
 
-    #scoring-col{
+    /* #scoring-col{
         margin-left: 40px;
         margin-top: 10px;
-    }
+    } */
 
     #weather-add-on{
         font-size: small;
