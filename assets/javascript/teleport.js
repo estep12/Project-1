@@ -147,13 +147,13 @@ function apiCalls(searchCity) {
                 dataType: "jsonp"
             })
 
-            const weatherQueryURL = "http://api.wunderground.com/api/" + weatherApiKey + "/conditions/q/" + stateName + "/" + cityName + ".json";
+            const weatherQueryURL = "https://api.wunderground.com/api/" + weatherApiKey + "/conditions/q/" + stateName + "/" + cityName + ".json";
             const weatherRequest = $.ajax({
                 url: weatherQueryURL,
                 method: "GET"
             })
 
-            const avgWeatherQueryURL = "http://api.wunderground.com/api/" + weatherApiKey + "/almanac/q/" + stateName + "/" + cityName + ".json";
+            const avgWeatherQueryURL = "https://api.wunderground.com/api/" + weatherApiKey + "/almanac/q/" + stateName + "/" + cityName + ".json";
             const avgWeatherRequest = $.ajax({
                 url: avgWeatherQueryURL,
                 method: "GET"
