@@ -72,6 +72,7 @@ background: linear-gradient(#1a237e, white)
 
 #jobs-add-on {
     overflow: auto;
+    max-height: 400px;
 }
 
 #food-add-on{
