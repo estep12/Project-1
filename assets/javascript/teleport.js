@@ -11,7 +11,8 @@ let cityPhotoURL;
 let cityScore;
 let scores;
 const weatherApiKey = "d94860da10767bf2";
-const jobApiKey = "96736d32f82b972c6e743b723d5d4a1d"
+const jobApiKey = "96736d32f82b972c6e743b723d5d4a1d";
+const zomatoApiKey = "ad9649b4631e93b6222374896622b03c";
 
 
 /*-------------------------------------------------------------------------
@@ -45,6 +46,7 @@ database.ref().orderByValue().limitToLast(3).on("value", (snapshot) => {
 /-------------------------------------------------------------------------*/
 let teleport = TeleportAutocomplete.init("#teleport-autocomplete");
 teleport.geoLocate = false;
+teleport.maxItems = 5;
 
 // make teleport API calls when click the submit button
 $("#submit").on("click", (e) => {
@@ -78,11 +80,6 @@ function initMap(latlonobj) {
         position: latlonobj,
         map: map
     });
-}
-
-// resize zomato widget when it loads
-function zomatoLoad(obj) {
-    console.log(obj);
 }
 
 // function to run API calls
@@ -121,15 +118,11 @@ function apiCalls(searchCity) {
             });
 
             $(".container").show();
-            $('html, body').animate({
-                scrollTop: $(".container").offset().top
-            }, 2000);
             $("#search-city").text(`${cityName}, ${stateName}, ${countryName}`);
             $("#explore-city").text(`Explore ${cityName}`);
             $("#city-info").empty().append($("<p>").append(`<b>Population: </b>${population.toLocaleString()}`));
             let newSrc = "https://www.zomato.com/widgets/res_search_widget.php?lat=" + latLong.lat + "&lon=" + latLong.lng + "&theme=dark&hideCitySearch=on&hideResSearch=on&sort=rating"
             $("#restaurant-widget").attr("src", newSrc);
-            // console.log("res text", $("#restaurant-widget").contents().find(".res").text());
 
             initMap(latLong);
 
@@ -266,14 +259,19 @@ function apiCalls(searchCity) {
 
             // check if any jobs were populated and hide table if no jobs
             if ($("#jobs-tbody").children().length > 0) {
+                $("#jobs-add-on").height("450px");
                 $("#no-jobs-message").hide();
                 $("#jobs-table").show();
-                $("#jobs-add-on").height("450px");
             } else {
                 $("#no-jobs-message").show();
                 $("#jobs-table").hide();
                 $("#jobs-add-on").height("auto");
             }
+
+            // scroll to top of city info section
+            $('html, body').animate({
+                scrollTop: $(".container").offset().top
+            }, 2000);
 
             // create request to get urban area images and scores
             if (response[0]) {
@@ -294,11 +292,9 @@ function apiCalls(searchCity) {
             cityScore = Math.round(response[1].teleport_city_score);
             scores = response[1].categories;
             scores.sort(function (a, b) { return (a.score_out_of_10 > b.score_out_of_10) ? -1 : ((b.score_out_of_10 > a.score_out_of_10) ? 1 : 0); });
-            $("#city-image img").remove();
-            $("#city-image").prepend($('<img id="dynamic-img">').attr("src", cityPhotoURL));
+            $("#dynamic-img").attr("src", cityPhotoURL);
             $("#city-summary").empty().append(response[1].summary);
             $("#city-summary p").last().remove();
-            $('#dynamic-img').attr("style", "width: 100%;");
             $("#city-info").append($("<p>").append(`<b>City Score: </b>${cityScore} / 100`));
             $("#map-col").removeClass("offset-m3");
             $("#scoring-col").show();
@@ -313,8 +309,8 @@ function apiCalls(searchCity) {
                 $("#scores-tbody-bot").append(newTableRowBot);
             }
         } else {
-            $("#city-image img").remove();
-            $("#city-image").prepend($('<img id="dynamic-img">').attr("src", "assets/images/placeholder-city-image.png"));
+            $("#city-summary").empty();
+            $("#dynamic-img").attr("src", "assets/images/placeholder-city-image.png");
             $("#map-col").addClass("offset-m3");
             $("#scoring-col").hide();
         }
