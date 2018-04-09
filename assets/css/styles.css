@@ -91,9 +91,11 @@ body {
 }
 
 h6 {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-weight: bold;
     color: #1a237e;
+    margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .table,
