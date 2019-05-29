@@ -1,2 +1,2 @@
 # Reloco
-A single-page app that helps you relocate to a new city.
+A single-page app that helps users relocate to a new city.
